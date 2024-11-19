@@ -10,14 +10,23 @@
 #' naf<-get_shapefile('nafo.clipped')
 #' naf
 #' @export
-get_shapefile<-function(x='nafo.clipped'){
+get_shapefile<-function(x){
 
   if(x == 'nafo.clipped'){
-    x<-terra::vect(system.file('extdata','nafo/NAFO_Divisions_2021_poly_clipped.shp',package='gslSpatial'))
-    x<-x[which(x$Division%in%c("4T","4V","4R","4S","3P")),]
-    x<-x[-which(x$SubDiv%in%c("4Vs","3Ps")),]
-    x<-terra::project(x,'epsg:4269')
+    POLY<-terra::vect(system.file('extdata','nafo/NAFO_Divisions_2021_poly_clipped.shp',package='gslSpatial'))
+    POLY<-POLY[which(POLY$Division%in%c("4T","4V","4R","4S","3P")),]
+    POLY<-POLY[-which(POLY$SubDiv%in%c("4Vs","3Ps")),]
+    POLY<-terra::project(POLY,'epsg:4269')
     writeLines("Source: https://www.nafo.int")
   }
-  return(x)
+
+  if(x == 'nafo'){
+    POLY<-terra::vect(system.file('extdata','nafo/NAFO_Divisions_2021_poly_not_clipped.shp',package='gslSpatial'))
+    POLY<-POLY[which(POLY$Division%in%c("4T","4V","4R","4S","3P")),]
+    POLY<-POLY[-which(POLY$SubDiv%in%c("4Vs","3Ps")),]
+    POLY<-terra::project(POLY,'epsg:4269')
+    writeLines("Source: https://www.nafo.int")
+  }
+
+  return(POLY)
 }
