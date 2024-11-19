@@ -10,9 +10,9 @@
 #' @param polygon Spatvector with geometry polygons
 
 #' @examples
-#' poly<-get_shapefile('nafo.clipped')
-#' df2<-assign_points_terra(dat.ziff[1:50,'longitude'],dat.ziff[1:50,'latitude'],poly)
-#' head(df2)
+#' #poly<-get_shapefile('nafo.clipped')
+#' #df2<-assign_points_terra(dat.ziff[1:50,'longitude'],dat.ziff[1:50,'latitude'],poly)
+#' #head(df2)
 #' @seealso assign_points_secr, dat.ziff, get_shapefile
 #' @export
 assign_points_terra<-function(x,y,polygon){

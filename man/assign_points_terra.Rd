@@ -23,9 +23,9 @@ Returns the original data frame with a new column of the assigned polygon.
 IF THERE ARE OVERLAPPING POLYGONS, USE \code{assign_points_secr} INSTEAD.
 }
 \examples{
-poly<-get_shapefile('nafo.clipped')
-df2<-assign_points_terra(dat.ziff[1:50,'longitude'],dat.ziff[1:50,'latitude'],poly)
-head(df2)
+#poly<-get_shapefile('nafo.clipped')
+#df2<-assign_points_terra(dat.ziff[1:50,'longitude'],dat.ziff[1:50,'latitude'],poly)
+#head(df2)
 }
 \seealso{
 assign_points_secr, dat.ziff, get_shapefile
