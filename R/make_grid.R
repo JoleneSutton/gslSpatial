@@ -8,7 +8,6 @@
 #' @importFrom terra project vect aggregate extract
 #' @importFrom raster raster rasterize
 #' @importFrom sf st_as_sf st_coordinates st_transform as_Spatial
-#' @importFrom dplyr select filter
 #' @importFrom sp SpatialPoints spTransform coordinates
 #' @importFrom ggplot2 ggplot geom_raster
 #' @seealso get_shapefile()
@@ -25,18 +24,12 @@ make_grid<-function(res){
   shape2<-sf::st_as_sf(pa0)
   shapeutm<-sf::st_transform (shape2, crs='+proj=utm +zone=20 +datum=NAD83 +units=km +no_defs')#crs="+proj=utm +zone=20 +datum=WGS84 +units=km")
 
-  #r <- raster::raster(as(shapeutm, "Spatial"), resolution = res)
-  #rr <- raster::rasterize(as(shapeutm, "Spatial"), r, getCover = T)
-
   r <- raster::raster(sf::as_Spatial(shapeutm), resolution = res)
   rr <- raster::rasterize(sf::as_Spatial(shapeutm), r, getCover = T)
 
   pagrid <- base::as.data.frame(raster::rasterToPoints(rr))
-  a <- pagrid[,3] * res * res
-  pagrid$area<-a
-  names(pagrid)<-c('x','y','layer','area')
-  pagrid <- dplyr::filter(pagrid, area > 0) |>
-    dplyr::select(-layer)
+  pagrid$'area'<-pagrid[,3] * res * res
+  pagrid<-pagrid[which(pagrid[,'area']>0),-3]
 
   sputm <- sp::SpatialPoints(pagrid, proj4string=sp::CRS("+proj=utm +zone=20 +datum=NAD83 +units=km +no_defs"))
   spgeo <- sp::spTransform(sputm, sp::CRS("+proj=longlat +datum=NAD83 +no_defs"))
