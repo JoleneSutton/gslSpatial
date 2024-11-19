@@ -14,7 +14,7 @@ A data frame with 1371 rows and 11 variables:
 \item{year}{survey year}
 \item{depth}{depth of the tow in meters}
 \item{whake.kg.tow}{catch density of White Hake}
-\item{redfish.kg.tow}{catch density of White Hake}
+\item{redfish.kg.tow}{catch density of Redfish}
 \item{ahalibut.kg.tow}{catch density of Atlantic Halibut}
 \item{ghalibut.kg.tow}{catch density of Greenland Halibut}
 \item{witch.kg.tow}{catch density of Witch Flounder}
