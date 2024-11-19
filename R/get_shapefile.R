@@ -19,4 +19,5 @@ get_shapefile<-function(x='nafo.clipped'){
     x<-terra::project(x,'epsg:4269')
     writeLines("Source: https://www.nafo.int")
   }
+  return(x)
 }
