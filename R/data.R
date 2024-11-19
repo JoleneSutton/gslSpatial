@@ -17,3 +17,9 @@
 #'   \item{witch.kg.tow}{catch density of Witch Flounder}
 #' }
 "dat.rv"
+
+#' Northwest Atlantic Fisheries Organization (NFAO) shapefile
+#'
+#' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Clipped to land. Accessed with get_shapefile('nafo.clipped')
+#'
+"nafo.clipped"

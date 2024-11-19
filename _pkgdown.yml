@@ -9,6 +9,9 @@ reference:
   - assign_points_to_nearest_polygon
   - get_shapefile
   - make_grid
-- title: Data sets
+- title: Data
   contents:
   - dat.rv
+- title: Shapefiles
+  contents:
+  - nafo.clipped
