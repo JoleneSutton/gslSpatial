@@ -3,7 +3,7 @@
 \docType{data}
 \name{nafo.clipped}
 \alias{nafo.clipped}
-\title{Northwest Atlantic Fisheries Organization (NFAO) shapefile}
+\title{Northwest Atlantic Fisheries Organization (NFAO) shapefile, clipped to land}
 \format{
 Retrieved as class spatVector with get_shapefile('nafo.clipped')
 }
@@ -11,6 +11,6 @@ Retrieved as class spatVector with get_shapefile('nafo.clipped')
 nafo.clipped
 }
 \description{
-A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Clipped to land. Accessed with get_shapefile('nafo.clipped')
+A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Accessed with get_shapefile('nafo.clipped')
 }
 \keyword{datasets}

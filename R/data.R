@@ -18,9 +18,16 @@
 #' }
 "dat.rv"
 
-#' Northwest Atlantic Fisheries Organization (NFAO) shapefile
+#' Northwest Atlantic Fisheries Organization (NFAO) shapefile, clipped to land
 #'
-#' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Clipped to land. Accessed with get_shapefile('nafo.clipped')
+#' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Accessed with get_shapefile('nafo.clipped')
 #'
 #' @format Retrieved as class spatVector with get_shapefile('nafo.clipped')
 "nafo.clipped"
+
+#' Northwest Atlantic Fisheries Organization (NFAO) shapefile, not clipped to land
+#'
+#' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Accessed with get_shapefile('nafo')
+#'
+#' @format Retrieved as class spatVector with get_shapefile('nafo')
+"nafo.unclipped"
