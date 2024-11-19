@@ -5,7 +5,7 @@
 \alias{nafo.clipped}
 \title{Northwest Atlantic Fisheries Organization (NFAO) shapefile}
 \format{
-An object of class \code{character} of length 1.
+Retrieved as class spatVector with get_shapefile('nafo.clipped')
 }
 \usage{
 nafo.clipped

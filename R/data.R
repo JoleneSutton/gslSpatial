@@ -22,4 +22,5 @@
 #'
 #' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Clipped to land. Accessed with get_shapefile('nafo.clipped')
 #'
+#' @format Retrieved as class spatVector with get_shapefile('nafo.clipped')
 "nafo.clipped"
