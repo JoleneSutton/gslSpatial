@@ -1,0 +1,12 @@
+Package: gslSpatial
+Title: gslSpatial: An R package to assist with spatial analysis in the Gulf of St. Lawrence region.
+Version: 0.0.0.9000
+Authors@R: 
+    person("Jolene", "Sutton", , "jolene.sutton@gmail.com", role = c("aut", "cre")),
+    person(c("Lysandre"), "Landry", role = "aut"))
+Description: Provides tools to assists with spatial analysis of Research Vessel and Landings data in the Gulf Region. Several functions are tailored for use with package `sdmTMB` (See Anderson et al. (2024) <doi:10.1101/2022.03.24.485545>.)
+    Other functions that do not require `sdmTMB` are useful for more general spatial applications.
+License: `use_gpl3_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
