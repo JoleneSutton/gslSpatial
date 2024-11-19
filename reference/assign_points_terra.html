@@ -82,12 +82,9 @@ IF THERE ARE OVERLAPPING POLYGONS, USE <code>assign_points_secr</code> INSTEAD.<
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">poly</span><span class="op">&lt;-</span><span class="fu"><a href="get_shapefile.html">get_shapefile</a></span><span class="op">(</span><span class="st">'nafo.clipped'</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Source: https://www.nafo.int</span>
-<span class="r-in"><span><span class="va">df2</span><span class="op">&lt;-</span><span class="fu">assign_points_terra</span><span class="op">(</span><span class="va">dat.ziff</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>,<span class="st">'longitude'</span><span class="op">]</span>,<span class="va">dat.ziff</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">50</span>,<span class="st">'latitude'</span><span class="op">]</span>,<span class="va">poly</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'dat.ziff' not found</span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df2</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> object 'df2' not found</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">#poly&lt;-get_shapefile('nafo.clipped')</span></span></span>
+<span class="r-in"><span><span class="co">#df2&lt;-assign_points_terra(dat.ziff[1:50,'longitude'],dat.ziff[1:50,'latitude'],poly)</span></span></span>
+<span class="r-in"><span><span class="co">#head(df2)</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
