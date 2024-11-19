@@ -4,7 +4,7 @@
 \alias{get_shapefile}
 \title{Retrieve a stored shapefile}
 \usage{
-get_shapefile(x = "nafo.clipped")
+get_shapefile(x)
 }
 \arguments{
 \item{x}{Either "nafo", "nafo.clipped", "coast", "rv.sgsl", "rv.ngsl", "rv.winter", "closures","hex". The "nafo" shapefile is not clipped to land. The "nafo.clipped" shapefile is clipped to land. The 'hex' shapefile is a hexagonal grid used in the fisheriescape project.}
