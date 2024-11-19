@@ -1,7 +1,7 @@
 #' Assign points to polygon using package secr
 #'
 #' Before applying function, make sure that the CRS of the polygon matches the CRS of the data points.
-#' Returns a dataframe with nrow = df. There is a column for each polygon with 1 or 0 indicating
+#' Returns a dataframe. There is a column for each polygon with 1 or 0 indicating
 #' whether each point falls within the polygon. There is also a column to indicate which polygon(s) each
 #' point has been assigned to. USE THIS INSTEAD OF `assign_points_terra` WHEN THERE ARE OVERLAPPING POLYGONS.
 #' @returns Returns a dataframe with nrow = df. There is a column for each polygon with 1 or 0 indicating
@@ -15,7 +15,7 @@
 #' @examples
 #' #poly<-get_shapefile('nafo.clipped')
 #' #df2<-assign_points_secr(dat.ziff[1:50,'longitude'],dat.ziff[1:50,'latitude'],poly,"Label")
-#' #' head(df2)
+#' #head(df2)
 #' @seealso assign_points_terra, dat.ziff, get_shapefile
 #' @export
 assign_points_secr<-function(x,y,polygon,polygon.label){
