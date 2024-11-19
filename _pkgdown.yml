@@ -1,4 +1,14 @@
 url: https://jolenesutton.github.io/gslSpatial/
 template:
   bootstrap: 5
-
+reference:
+- title: Functions
+  contents:
+  - assign_points_secr
+  - assign_points_terra
+  - assign_points_to_nearest_polygon
+  - get_shapefile
+  - make_grid
+- title: Data sets
+  contents:
+  - dat.rv
