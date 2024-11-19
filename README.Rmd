@@ -19,29 +19,14 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/JoleneSutton/gslSpatial/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JoleneSutton/gslSpatial/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of gslSpatial is to ...
+*gslSpatial* provides tools to assist with spatial analysis of in the Gulf of St. Lawrence Region.
 
 ## Installation
 
-You can install the development version of gslSpatial like so:
+You can install the development version of *gslSpatial* with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("devtools")
+devtools::install_github("JoleneSutton/gslSpatial")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
-library(gslSpatial)
-## basic example code
-```
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
