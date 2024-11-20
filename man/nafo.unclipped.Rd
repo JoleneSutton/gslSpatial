@@ -3,7 +3,7 @@
 \docType{data}
 \name{nafo.unclipped}
 \alias{nafo.unclipped}
-\title{Northwest Atlantic Fisheries Organization (NFAO) shapefile, not clipped to land}
+\title{Northwest Atlantic Fisheries Organization (NAFO) shapefile, not clipped to land}
 \format{
 Retrieved as class SpatVector with get_shapefile('nafo')
 }
