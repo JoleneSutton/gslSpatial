@@ -5,12 +5,12 @@
 \alias{nafo.unclipped}
 \title{Northwest Atlantic Fisheries Organization (NFAO) shapefile, not clipped to land}
 \format{
-Retrieved as class spatVector with get_shapefile('nafo')
+Retrieved as class SpatVector with get_shapefile('nafo')
 }
 \usage{
 nafo.unclipped
 }
 \description{
-A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Accessed with get_shapefile('nafo')
+A shapefile sourced from https://www.nafo.int, restricted to 3Pn4RSTVn. Accessed with get_shapefile('nafo')
 }
 \keyword{datasets}
