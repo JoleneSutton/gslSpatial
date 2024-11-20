@@ -20,14 +20,21 @@
 
 #' Northwest Atlantic Fisheries Organization (NFAO) shapefile, clipped to land
 #'
-#' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Accessed with get_shapefile('nafo.clipped')
+#' A shapefile sourced from https://www.nafo.int, restricted to 3Pn4RSTVn. Accessed with get_shapefile('nafo.clipped')
 #'
-#' @format Retrieved as class spatVector with get_shapefile('nafo.clipped')
+#' @format Retrieved as class SpatVector with get_shapefile('nafo.clipped')
 "nafo.clipped"
 
 #' Northwest Atlantic Fisheries Organization (NFAO) shapefile, not clipped to land
 #'
-#' A shapefile sourced from https://www.nafo.int, condensed to 3Pn4RSTVn. Accessed with get_shapefile('nafo')
+#' A shapefile sourced from https://www.nafo.int, restricted to 3Pn4RSTVn. Accessed with get_shapefile('nafo')
 #'
-#' @format Retrieved as class spatVector with get_shapefile('nafo')
+#' @format Retrieved as class SpatVector with get_shapefile('nafo')
 "nafo.unclipped"
+
+#' Oceans Act Marine Protected Areas shapefile
+#'
+#' A shapefile sourced from https://open.canada.ca, restricted to 3Pn4RSTVn. Accessed with get_shapefile('mpa')
+#'
+#' @format Retrieved as class SpatVector with get_shapefile('mpa')
+"mpa"
