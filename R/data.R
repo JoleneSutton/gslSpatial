@@ -45,3 +45,17 @@
 #'
 #' @format Retrieved as class SpatVector with get_shapefile('oecm')
 "oecm"
+
+#' Hexagonal grid, 10x10km
+#'
+#' A shapefile created for the fisheriescape project, restricted to 3Pn4RSTVn. Accessed with get_shapefile('hex')
+#'
+#' @format Retrieved as class SpatVector with get_shapefile('hex')
+"hex"
+
+#' rv.winter
+#'
+#' A shapefile of the boundaries of the Gulf of St. Lawrence Winter Research Vessel Survey. Accessed with get_shapefile('rv.winter')
+#'
+#' @format Retrieved as class SpatVector with get_shapefile('rv.winter')
+"rv.winter"

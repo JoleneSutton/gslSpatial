@@ -15,9 +15,11 @@ reference:
   - dat.rv
 - title: Shapefiles
   contents:
+  - hex
   - mpa
   - nafo.clipped
   - nafo.unclipped
   - oecm
+  - rv.winter
 
 
