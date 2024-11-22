@@ -7,6 +7,7 @@ reference:
   - assign_points_secr
   - assign_points_terra
   - assign_points_to_nearest_polygon
+  - format_grid_manually
   - get_depth
   - get_shapefile
   - make_grid
