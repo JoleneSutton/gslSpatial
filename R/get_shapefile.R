@@ -13,30 +13,32 @@
 get_shapefile<-function(x){
 
   if(x == 'nafo.clipped'){
-    POLY<-terra::vect(system.file('extdata','nafo_clipped/nafo_clipped.shp',package='gslSpatial'))
+    #POLY<-terra::vect(system.file('extdata','nafo_clipped/nafo_clipped.shp',package='gslSpatial'))
+    POLY<-readRDS(system.file('extdata','nafo_clipped_list.rds',package='gslSpatial'))
+    POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
     writeLines("Source: https://www.nafo.int")
   }
 
   if(x == 'nafo'){
-    POLY<-terra::vect(system.file('extdata','nafo_unclipped/nafo_unclipped.shp',package='gslSpatial'))
+    #POLY<-terra::vect(system.file('extdata','nafo_unclipped/nafo_unclipped.shp',package='gslSpatial'))
+    POLY<-readRDS(system.file('extdata','nafo_unclipped_list.rds',package='gslSpatial'))
+    POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
     writeLines("Source: https://www.nafo.int")
   }
 
   if(x == 'mpa'){
     writeLines("Oceans Act Marine Protected Areas, source:https://open.canada.ca")
-    POLY<-terra::vect(system.file('extdata','mpa_clipped/mpa_clipped.shp',package='gslSpatial'))
+    #POLY<-terra::vect(system.file('extdata','mpa_clipped/mpa_clipped.shp',package='gslSpatial'))
+    POLY<-readRDS(system.file('extdata','mpa_list.rds',package='gslSpatial'))
+    POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
 
   if(x == 'oecm'){
     writeLines("Other Effective Area-Based Conservation Measures, source:https://open.canada.ca")
-    POLY<-terra::vect(system.file('extdata','oeabcm_clipped/oeabcm_clipped.shp',package='gslSpatial'))
+    #POLY<-terra::vect(system.file('extdata','oeabcm_clipped/oeabcm_clipped.shp',package='gslSpatial'))
+    POLY<-readRDS(system.file('extdata','oecm_list.rds',package='gslSpatial'))
+    POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
-
-  if(x == 'hex'){
-    writeLines("10 x 10 km hex grid")
-    POLY<-terra::vect(system.file('extdata','hex_clipped/hex_clipped.shp',package='gslSpatial'))
-  }
-
 
 
   return(POLY)
