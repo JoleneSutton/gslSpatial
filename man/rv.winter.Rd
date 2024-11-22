@@ -3,7 +3,7 @@
 \docType{data}
 \name{rv.winter}
 \alias{rv.winter}
-\title{rv.winter}
+\title{Gulf of St. Lawrence Winter Research Vessel Survey}
 \format{
 Retrieved as class SpatVector with get_shapefile('rv.winter')
 }

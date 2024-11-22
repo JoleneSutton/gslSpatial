@@ -18,6 +18,31 @@
 #' }
 "dat.rv"
 
+#' Example data set: Commercial Landings
+#'
+#' An example data set containing spatial information and species catch weights. Not useful for formal analysis!
+#'
+#' @format A data frame with 4559 rows and 16 variables:
+#' \describe{
+#'   \item{X}{Easting, UTM NAD83, Zone:20N, Units:km}
+#'   \item{Y}{Northing, UTM NAD83, Zone:20N, Units:km}
+#'   \item{ancfvn}{Anonymised cfvn}
+#'   \item{date.landed}{date.landed}
+#'   \item{species.code}{species.code}
+#'   \item{round.weight}{round.weight}
+#'   \item{main.species.caught}{main.species.caught}
+#'   \item{main.species.sought}{main.species.sought}
+#'   \item{date.caught}{date.caught}
+#'   \item{latitude}{decimal degrees, NAD83, EPSG:4269}
+#'   \item{longitude}{decimal degrees, NAD83, EPSG:4269}
+#'   \item{gear.class}{gear.class}
+#'   \item{year}{year}
+#'   \item{year.landed}{year.landed}
+#'   \item{month.landed}{month.landed}
+#'   \item{day.landed}{day.landed}
+#' }
+"dat.ziff"
+
 #' Oceans Act Marine Protected Areas shapefile
 #'
 #' A shapefile sourced from https://open.canada.ca, restricted to 3Pn4RSTVn. Accessed with get_shapefile('mpa')
@@ -53,7 +78,7 @@
 #' @format Retrieved as class SpatVector with get_shapefile('hex')
 "hex"
 
-#' rv.winter
+#' Gulf of St. Lawrence Winter Research Vessel Survey
 #'
 #' A shapefile of the boundaries of the Gulf of St. Lawrence Winter Research Vessel Survey. Accessed with get_shapefile('rv.winter')
 #'
