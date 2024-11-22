@@ -43,6 +43,22 @@
 #' }
 "dat.ziff"
 
+#' An example prediction grid for the Gulf of St. Lawrence
+#'
+#' A grid covering 4Pn4RSTVn with 4x4km grid cells.
+#'
+#' @format A data frame with 18885 rows and 7 variables:
+#' \describe{
+#'   \item{X}{Easting, UTM NAD83, Zone:20N, Units:km}
+#'   \item{Y}{Northing, UTM NAD83, Zone:20N, Units:km}
+#'   \item{area}{Area of each grid cell}
+#'   \item{longitude}{decimal degrees, NAD83, EPSG:4269}
+#'   \item{latitude}{decimal degrees, NAD83, EPSG:4269}
+#'   \item{nafo.assigned}{NAFO division or subdivision}
+#'   \item{depth}{Depth in meters, based on bathymetry reference GEBCO 2024}
+#' }
+"pgrid4"
+
 #' Oceans Act Marine Protected Areas shapefile
 #'
 #' A shapefile sourced from https://open.canada.ca, restricted to 3Pn4RSTVn. Accessed with get_shapefile('mpa')
