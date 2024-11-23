@@ -11,6 +11,7 @@ reference:
   - get_depth
   - get_shapefile
   - make_grid
+  - make_polygon
 - title: Data
   contents:
   - dat.rv
