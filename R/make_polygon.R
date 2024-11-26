@@ -24,6 +24,8 @@ make_polygon<-function(df,x,y,grp.cols,crs){
 
   X<-df[,x]
   Y<-df[,y]
+  names(X)<-'X'
+  names(Y)<-'Y'
 
   df2<-cbind(X,Y,df)
   index<-which(names(df2)%in%grp.cols)
