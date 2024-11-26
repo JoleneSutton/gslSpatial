@@ -3,6 +3,7 @@
 export(assign_points_secr)
 export(assign_points_terra)
 export(assign_points_to_nearest_polygon)
+export(convert_dms_to_dd)
 export(format_grid_manually)
 export(get_depth)
 export(get_shapefile)
