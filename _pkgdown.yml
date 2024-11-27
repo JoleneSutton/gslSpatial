@@ -8,6 +8,7 @@ reference:
   - assign_points_secr
   - assign_points_terra
   - assign_points_to_nearest_polygon
+  - clean_ziff_dates
   - convert_dms_to_dd
   - format_grid_manually
   - get_depth
