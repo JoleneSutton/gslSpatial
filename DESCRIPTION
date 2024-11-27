@@ -23,8 +23,7 @@ Imports:
     raster (>= 3.5.15),
     secr (>= 4.6.1),
     sf (>= 1.0.0),
-    sp (>= 2.1.0),
-    surf
+    sp (>= 2.1.0)
 Remotes: 
     github::JoleneSutton/surf
 Suggests: 
