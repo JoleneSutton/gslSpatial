@@ -25,6 +25,8 @@ Imports:
     sf (>= 1.0.0),
     sp (>= 2.1.0),
     surf
+Remotes: 
+    github::JoleneSutton/surf
 Suggests: 
     knitr,
     rmarkdown
