@@ -43,6 +43,13 @@
 #' }
 "dat.ziff"
 
+#' Data frame of visreg fits
+#'
+#' Example data frame
+#'
+#' @format A data frame with 101 rows and 2 variables.
+"dat.visreg.fits"
+
 #' An example prediction grid for the Gulf of St. Lawrence
 #'
 #' A grid covering 4Pn4RSTVn with 4x4km grid cells.

@@ -17,6 +17,7 @@ reference:
 - title: Data
   contents:
   - dat.rv
+  - dat.visreg.fits
   - dat.ziff
   - pgrid4
 - title: Shapefiles
