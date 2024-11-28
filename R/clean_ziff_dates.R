@@ -5,7 +5,7 @@
 #' Step 2) In remaining cases, if date.landed came earlier than date.caught, the date.caught is inferred to be the true date landed
 #' Step 3) In cases where date.caught was "000000" or missing, the date.landed.updated is inferred to be the true date caught
 #' @param x A data frame with columns 'date.landed' and 'date.caught'
-#' @importFrom surf make_num_pretty
+#' @importFrom eclectic make_num_pretty
 #' @return Data frame
 #' @examples
 #' clean_ziff_dates(dat.ziff[1:5,])
@@ -23,7 +23,7 @@ clean_ziff_dates<-function(x){
   ziff[index,"date.landed.updated"]<-ziff[index,"date.caught"]
 
   writeLines(c("\n",
-               paste0(c(surf::make_num_pretty(length(index))),
+               paste0(c(eclectic::make_num_pretty(length(index))),
                       " missing 'date.landed' were updated to match 'date.caught'")))
 
   #//////////////////////////////////////////////////////////
@@ -38,7 +38,7 @@ clean_ziff_dates<-function(x){
   ziff[index,"date.landed.updated"]<-ziff[index,"date.caught"]
 
   writeLines(c("\n",
-               paste0(c(surf::make_num_pretty(length(index)))," 'date.landed' that came before 'date.caught' were \nupdated to match date.caught")))
+               paste0(c(eclectic::make_num_pretty(length(index)))," 'date.landed' that came before 'date.caught' were \nupdated to match date.caught")))
 
   #//////////////////////////////////////////////////////////
   ## fix missing date.caught ----
@@ -50,7 +50,7 @@ clean_ziff_dates<-function(x){
   ziff[index,"date.caught.updated"]<-ziff[index,"date.landed.updated"]
 
   writeLines(c("\n",
-               paste0(c(surf::make_num_pretty(length(index))),
+               paste0(c(eclectic::make_num_pretty(length(index))),
                       " missing 'date.caught' were updated to match 'date.landed.updated'")))
 
   #//////////////////////////////////////////////////////////

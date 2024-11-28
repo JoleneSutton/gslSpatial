@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-**gslSpatial** requires the package [**surf**](https://jolenesutton.github.io/surf/index.html). When you install **gslSpatial**, the **surf** package will also be installed.
+**gslSpatial** requires the package [**eclectic**](https://jolenesutton.github.io/eclectic/index.html). When you install **gslSpatial**, the **eclectic** package will also be installed.
 
 To install **gslSpatial**, use:
 ``` r

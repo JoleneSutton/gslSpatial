@@ -11,8 +11,9 @@
 ## Installation
 
 **gslSpatial** requires the package
-[**surf**](https://jolenesutton.github.io/surf/index.html). When you
-install **gslSpatial**, the **surf** package will also be installed.
+[**eclectic**](https://jolenesutton.github.io/eclectic/index.html). When
+you install **gslSpatial**, the **eclectic** package will also be
+installed.
 
 To install **gslSpatial**, use:
 

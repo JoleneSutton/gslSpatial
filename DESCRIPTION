@@ -24,9 +24,9 @@ Imports:
     secr (>= 4.6.1),
     sf (>= 1.0.0),
     sp (>= 2.1.0),
-    surf
+    eclectic
 Remotes: 
-    github::JoleneSutton/surf
+    github::JoleneSutton/eclectic
 Suggests: 
     knitr,
     rmarkdown
