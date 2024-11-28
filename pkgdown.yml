@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   Introduction: Introduction.html
-last_built: 2024-11-27T15:42Z
+last_built: 2024-11-28T15:19Z
 urls:
   reference: https://jolenesutton.github.io/gslSpatial/reference
   article: https://jolenesutton.github.io/gslSpatial/articles
