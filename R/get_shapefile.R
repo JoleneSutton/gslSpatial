@@ -1,7 +1,7 @@
 #' Retrieve a stored shapefile
 #'
 #' Imports a stored shapefile as a SpatVector (terra).
-#' @param x Either "nafo", "nafo.clipped", "mpa", "oecm","hex",'rv.winter'. The "nafo" shapefile is not clipped to land. The "nafo.clipped" shapefile is clipped to land. The 'hex' shapefile is a hexagonal grid used in the fisheriescape project.
+#' @param x Either "nafo", "nafo.clipped", "mpa", "oecm","hex",'rv.winter', 'rv.sgsl'. The "nafo" shapefile is not clipped to land. The "nafo.clipped" shapefile is clipped to land. The 'hex' shapefile is a hexagonal grid used in the fisheriescape project.
 #' @importFrom terra vect
 #' @importFrom terra project
 #' @importFrom terra plot
@@ -50,6 +50,12 @@ get_shapefile<-function(x){
   if(x == 'rv.winter'){
     writeLines("GSL Winter RV Survey")
     POLY<-readRDS(system.file('extdata','survey_rv_winter_list.rds',package='gslSpatial'))
+    POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
+  }
+
+  if(x == 'rv.sgsl'){
+    writeLines("sGSL September RV Survey")
+    POLY<-readRDS(system.file('extdata','survey_rv_sgsl_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
   return(POLY)
