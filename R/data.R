@@ -114,3 +114,10 @@
 #'
 #' @format Retrieved as class SpatVector with get_shapefile('rv.sgsl')
 "rv.sgsl"
+
+#' Coastline shapefile
+#'
+#' A shapefile of the coastline. Accessed with get_shapefile('coastline')
+#'
+#' @format Retrieved as class SpatVector with get_shapefile('coastline')
+"coastline"

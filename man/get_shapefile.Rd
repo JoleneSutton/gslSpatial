@@ -7,7 +7,7 @@
 get_shapefile(x)
 }
 \arguments{
-\item{x}{Either "nafo", "nafo.clipped", "mpa", "oecm","hex",'rv.winter', 'rv.sgsl'. The "nafo" shapefile is not clipped to land. The "nafo.clipped" shapefile is clipped to land. The 'hex' shapefile is a hexagonal grid used in the fisheriescape project.}
+\item{x}{Either "nafo", "nafo.clipped", "mpa", "oecm","hex",'rv.winter', 'rv.sgsl', 'coastline'. The "nafo" shapefile is not clipped to land. The "nafo.clipped" shapefile is clipped to land. The 'hex' shapefile is a hexagonal grid used in the fisheriescape project.}
 }
 \value{
 Returns a SpatVector

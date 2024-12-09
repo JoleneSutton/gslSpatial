@@ -23,6 +23,7 @@ reference:
   - pgrid4
 - title: Shapefiles
   contents:
+  - coastline
   - hex
   - mpa
   - nafo.clipped
