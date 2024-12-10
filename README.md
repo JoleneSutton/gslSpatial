@@ -24,7 +24,7 @@ devtools::install_github("JoleneSutton/gslSpatial")
 
 ## Overview
 
-**gslSpatial** provides tools to assist with spatial analysis of in the
+**gslSpatial** provides tools to assist with spatial analysis in the
 Gulf of St. Lawrence Region.
 
 Descriptions of available functions, data, and stored shapefiles are
