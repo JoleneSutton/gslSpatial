@@ -6,6 +6,8 @@
 \alias{gslSpatial-package}
 \title{gslSpatial: An R package to assist with spatial analysis in the Gulf of St. Lawrence region}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 Provides tools to assists with spatial analysis of Research Vessel and Landings data in the Gulf Region. Several functions are tailored for use with package `sdmTMB` (See Anderson et al. (2024) \doi{10.1101/2022.03.24.485545}.) Other functions that do not require `sdmTMB` are useful for more general spatial applications.
 }
 \seealso{

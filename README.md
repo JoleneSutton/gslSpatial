@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# gslSpatial
+# gslSpatial <a href="https://jolenesutton.github.io/gslSpatial/"><img src="man/figures/logo.png" align="right" height="138" alt="gslSpatial website" /></a>
 
 <!-- badges: start -->
 
