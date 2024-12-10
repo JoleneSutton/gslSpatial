@@ -8,6 +8,12 @@
 [![R-CMD-check](https://github.com/JoleneSutton/gslSpatial/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/JoleneSutton/gslSpatial/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
+**gslSpatial** provides tools to assist with spatial analysis in the
+Gulf of St. Lawrence Region.
+
+Descriptions of available functions, data, and stored shapefiles are
+[here](https://jolenesutton.github.io/gslSpatial/reference/index.html).
+
 ## Installation
 
 **gslSpatial** requires the package
@@ -21,11 +27,3 @@ To install **gslSpatial**, use:
 # install.packages("devtools")
 devtools::install_github("JoleneSutton/gslSpatial")
 ```
-
-## Overview
-
-**gslSpatial** provides tools to assist with spatial analysis in the
-Gulf of St. Lawrence Region.
-
-Descriptions of available functions, data, and stored shapefiles are
-[here](https://jolenesutton.github.io/gslSpatial/reference/index.html).
