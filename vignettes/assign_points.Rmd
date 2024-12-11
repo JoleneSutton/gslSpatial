@@ -94,7 +94,8 @@ ggplot()+
   geom_spatvector(data=rv,fill=NA,col='red')+
   geom_point(data=dat.ziff,aes(longitude,latitude),alpha=0.5)+
   theme_bw()+
-  theme(legend.position="bottom")
+  theme(legend.position="bottom",legend.title=element_blank())+
+  guides(fill=guide_legend(ncol=1,byrow=TRUE))
 ```
 
 In order to demonstrate function `assign_points_secr`, we will combine the two shapefiles as if they were originally a single shapefile. 
@@ -113,9 +114,10 @@ shape<-shape[, c("NAME")]
 shape
 
 ggplot()+
-  geom_spatvector(data=shape,aes(fill=factor(NAME)),alpha=0.25)+
+  geom_spatvector(data=shape,aes(fill=factor(NAME)),alpha=0.5)+
   theme_bw()+
-  theme(legend.position="bottom")
+  theme(legend.position="bottom",legend.title=element_blank())+
+  guides(fill=guide_legend(nrow=8))
   
 ```
 
@@ -130,15 +132,16 @@ polygon<-x$assigned.polygon
 df2<-cbind(dat.ziff,polygon)
 ```
 
-Using function `table` shows that 69 data points fall within the area in which stratum 416 overlaps with Banc-des-Américains Marine Protected Area. All other assigned points belong to non-overlapping polygon areas.
-```{r results = "hold"}
-table(df2$polygon)
+Using function `table` shows that 69 points fall within the area in which stratum 416 overlaps with Banc-des-Américains Marine Protected Area (e.g., table(df2$polygon)). All other assigned points belong to non-overlapping polygon areas.
+```{r fig.height=7}
+rbind(table(df2$polygon))
 
 ggplot()+
   geom_spatvector(data=shape,fill=NA)+
   geom_point(data=df2,aes(longitude,latitude,col=polygon),alpha=0.5)+
   theme_bw()+
-  theme(legend.position="bottom")
+  theme(legend.position="bottom",legend.title=element_blank())+
+  guides(col=guide_legend(ncol=4))
 ```
 
 
@@ -158,6 +161,7 @@ ggplot()+
   geom_spatvector(data=shape,fill=NA)+
   geom_point(data=x,aes(x,y,col=NAME),alpha=0.5)+
   theme_bw()+
-  theme(legend.position="bottom")
+  theme(legend.position="bottom",legend.title=element_blank())+
+  guides(col=guide_legend(ncol=6))
 
 ```
