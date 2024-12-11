@@ -30,7 +30,7 @@ library(tidyterra)
 ```
 
 ## Get a shapefile
-Notice the the coordinate reference system (crs) is lon/lat NAD83 (EPSG:4269). When working with spatial data, your data should all have the same crs. If they don't, you can re-project them (e.g., ?terra::project).
+Notice that the coordinate reference system (crs) is lon/lat NAD83 (EPSG:4269). When working with spatial data, your data should all have the same crs. If they don't, you can re-project them (e.g., ?terra::project).
 ```{r }
 rv<-get_shapefile('rv.sgsl')
 
@@ -44,7 +44,7 @@ ggplot()+
 
 
 ## Get some data
-This example uses commercial landings data, that have the same longitude and latitude coordinates with the same crs as the shapefile.
+This example uses commercial landings data that have longitude and latitude coordinates with the same crs as the shapefile.
 ```{r results = "hold"}
 df<-dat.ziff[,c('longitude','latitude')]
 head(df)
@@ -133,7 +133,7 @@ polygon<-x$assigned.polygon
 df2<-cbind(dat.ziff,polygon)
 ```
 
-Using function `table` shows that 69 points fall within the area in which stratum 416 overlaps with Banc-des-Américains Marine Protected Area (e.g., table(df2$polygon)). All other assigned points belong to non-overlapping polygon areas.
+Using function `table` shows that 69 points fall within the area in which stratum 416 overlaps with Banc-des-Américains Marine Protected Area. All other assigned points belong to non-overlapping polygon areas.
 ```{r fig.height=7}
 rbind(table(df2$polygon))
 
@@ -147,7 +147,7 @@ ggplot()+
 
 
 ## Assigning points to the nearest polygon
-Finally, the previous examples show that a number of data points don't overlap with any of the polygons in our shapefiles. But what if we wanted to find out which polygons they were closest to? Then we could use function `assign_points_to_nearest_polygon`. This function takes a bit longer to run compare to `assign_points_terra` or `assign_points_secr`.
+Finally, the previous examples show that a number of data points don't overlap with any of the polygons in our shapefiles. But what if we wanted to find out which polygons they were closest to? Then we could use function `assign_points_to_nearest_polygon`. This function takes a bit longer to run compared to `assign_points_terra` or `assign_points_secr`.
 
 
 ```{r }
