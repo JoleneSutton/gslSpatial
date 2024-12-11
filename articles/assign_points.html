@@ -92,7 +92,7 @@ research vessel survey strata and/or Marine Protected Areas.</p>
 <div class="section level2">
 <h2 id="get-a-shapefile">Get a shapefile<a class="anchor" aria-label="anchor" href="#get-a-shapefile"></a>
 </h2>
-<p>Notice the the coordinate reference system (crs) is lon/lat NAD83
+<p>Notice that the coordinate reference system (crs) is lon/lat NAD83
 (EPSG:4269). When working with spatial data, your data should all have
 the same crs. If they don’t, you can re-project them (e.g.,
 ?terra::project).</p>
@@ -121,9 +121,8 @@ the same crs. If they don’t, you can re-project them (e.g.,
 <div class="section level2">
 <h2 id="get-some-data">Get some data<a class="anchor" aria-label="anchor" href="#get-some-data"></a>
 </h2>
-<p>This example uses commercial landings data, that have the same
-longitude and latitude coordinates with the same crs as the
-shapefile.</p>
+<p>This example uses commercial landings data that have longitude and
+latitude coordinates with the same crs as the shapefile.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df</span><span class="op">&lt;-</span><span class="va">dat.ziff</span><span class="op">[</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'longitude'</span>,<span class="st">'latitude'</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span>
@@ -153,11 +152,11 @@ polygons</p>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/assign_points_terra.html">assign_points_terra</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">longitude</span>, <span class="va">df</span><span class="op">$</span><span class="va">latitude</span>,<span class="va">rv</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 18:12:37</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 18:12:37</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 18:12:37</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 4000. 18:12:37</span></span>
-<span><span class="co">#&gt; Processing points 4001 to 4559. 18:12:37</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 18:27:26</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 18:27:26</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 18:27:26</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 4000. 18:27:26</span></span>
+<span><span class="co">#&gt; Processing points 4001 to 4559. 18:27:26</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          x       y assigned.polygon</span></span>
 <span><span class="co">#&gt; 1 -60.4406 47.2421              437</span></span>
@@ -271,19 +270,19 @@ shapefile.</p>
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/assign_points_secr.html">assign_points_secr</a></span><span class="op">(</span><span class="va">dat.ziff</span><span class="op">[</span>,<span class="st">'longitude'</span><span class="op">]</span>,</span>
 <span>                        <span class="va">dat.ziff</span><span class="op">[</span>,<span class="st">'latitude'</span><span class="op">]</span>,</span>
 <span>                        <span class="va">shape</span>,<span class="st">"NAME"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 18:12:39</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 18:12:40</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 18:12:41</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 4000. 18:12:41</span></span>
-<span><span class="co">#&gt; Processing points 4001 to 4559. 18:12:42</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 18:27:28</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 18:27:29</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 18:27:30</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 4000. 18:27:30</span></span>
+<span><span class="co">#&gt; Processing points 4001 to 4559. 18:27:30</span></span>
 <span></span>
 <span><span class="va">polygon</span><span class="op">&lt;-</span><span class="va">x</span><span class="op">$</span><span class="va">assigned.polygon</span></span>
 <span></span>
 <span><span class="va">df2</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">dat.ziff</span>,<span class="va">polygon</span><span class="op">)</span></span></code></pre></div>
 <p>Using function <code>table</code> shows that 69 points fall within
 the area in which stratum 416 overlaps with Banc-des-Américains Marine
-Protected Area (e.g., table(df2$polygon)). All other assigned points
-belong to non-overlapping polygon areas.</p>
+Protected Area. All other assigned points belong to non-overlapping
+polygon areas.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">df2</span><span class="op">$</span><span class="va">polygon</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt;      415 416 416, Banc-des-Américains Marine Protected Area 417 418 419 420 422</span></span>
@@ -308,7 +307,7 @@ belong to non-overlapping polygon areas.</p>
 don’t overlap with any of the polygons in our shapefiles. But what if we
 wanted to find out which polygons they were closest to? Then we could
 use function <code>assign_points_to_nearest_polygon</code>. This
-function takes a bit longer to run compare to
+function takes a bit longer to run compared to
 <code>assign_points_terra</code> or <code>assign_points_secr</code>.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get the unassigned data points</span></span>
