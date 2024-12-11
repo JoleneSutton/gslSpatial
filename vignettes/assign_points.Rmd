@@ -112,17 +112,18 @@ mpa$NAME<-as.character(mpa$NAME_E)
 shape<-rbind(rv,mpa)
 shape<-shape[, c("NAME")]
 shape
+```
 
+```{r, fig.height=7, warning = FALSE, message = FALSE }
 ggplot()+
   geom_spatvector(data=shape,aes(fill=factor(NAME)),alpha=0.5)+
   theme_bw()+
   theme(legend.position="bottom",legend.title=element_blank())+
   guides(fill=guide_legend(nrow=8))
-  
 ```
 
 Now use function `assign_points_secr`
-```{r results = "hold"}
+```{r }
 x<-assign_points_secr(dat.ziff[,'longitude'],
                         dat.ziff[,'latitude'],
                         shape,"NAME")
@@ -141,7 +142,7 @@ ggplot()+
   geom_point(data=df2,aes(longitude,latitude,col=polygon),alpha=0.5)+
   theme_bw()+
   theme(legend.position="bottom",legend.title=element_blank())+
-  guides(col=guide_legend(ncol=4))
+  guides(col=guide_legend(ncol=3))
 ```
 
 
