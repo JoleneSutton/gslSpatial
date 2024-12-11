@@ -18,17 +18,18 @@ Depends:
     R (>= 3.5.0)
 Imports: 
     dplyr (>= 1.1.4),
+    eclectic,
     ggplot2 (>= 3.0.0),
     terra (>= 1.0.0),
     raster (>= 3.5.15),
     secr (>= 4.6.1),
     sf (>= 1.0.0),
-    sp (>= 2.1.0),
-    eclectic
+    sp (>= 2.1.0)
 Remotes: 
     github::JoleneSutton/eclectic
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    tidyterra (>= 0.6.1)
 VignetteBuilder: knitr
 LazyData: true

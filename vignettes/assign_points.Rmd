@@ -1,0 +1,158 @@
+---
+title: "Assign points functions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{assign_points}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(gslSpatial)
+
+
+library(ggplot2)
+library(tidyterra)
+```
+# Assigning points to polygons
+
+There are three functions that maybe be used to assign points (coordinates) to polygons:
+  + **assign_points_secr** is usefule when each point could overlap with one or more polygons in a shapefile. It returns a presence absence data frame to indicate whether a point is inside a polygon. The last column in the data frame indicates all the polygons associated with each point.
+  + **assign_points_terra** is useful when each point could overlap with only polygon in a shapefile
+  + **assign_points_to_nearest_polygon** is useful when there are points that don't overlap with any polygons, but you want to know which polygon is point is nearest to. This function uses the edges, rather than the centroids, of polygons.
+
+This example uses commercial fishing coordinates, and assigns them the DFO September research vessel survey strata.
+
+## Get a shapefile
+Notice the the coordinate reference system (crs) is lon/lat NAD83 (EPSG:4269). When working with spatial data, your data should all have the same crs. If they don't, you can re-project them (e.g., ?terra::project).
+```{r results = "hold"}
+rv<-get_shapefile('rv.sgsl')
+
+# see information about the object
+rv 
+
+# plot it
+ggplot()+
+  geom_spatvector(data=rv,aes(fill=factor(id)))
+```
+
+
+## Get some data
+This example uses commercial landings data, that have the same longitude ad latitude coordinates in the same crs as the shapefile.
+```{r results = "hold"}
+head(dat.ziff)
+```
+
+## Plot everything
+There are many points inside the polygons as well as outside the polygons
+```{r results = "hold"}
+
+ggplot()+
+  geom_spatvector(data=rv)+
+  geom_point(data=dat.ziff,aes(longitude,latitude))+
+  theme_bw()
+
+```
+
+
+## Using function `assign_points_terra`
+```{r results = "hold"}
+x<-assign_points_terra(dat.ziff$longitude, dat.ziff$latitude,rv)
+head(x)
+
+stratum<-x[,3]
+
+# combine
+df1<-cbind(dat.ziff,stratum)
+head(df1)
+
+ggplot()+
+  geom_spatvector(data=rv)+
+  geom_point(data=df1,aes(longitude,latitude,col=factor(stratum)))+
+  theme_bw()
+
+```
+
+## What if there are overlapping polyons? Use function `assign_points_secr`
+If there are overlapping polygons causing your data points to 'belong' to multiple polygons, you can use function `assign_points_secr`
+
+Start by getting another shapefile. This example uses Oceans Act Marine Protected Areas
+```{r results = "hold"}
+mpa<-get_shapefile('mpa')
+
+mpa
+
+ggplot()+
+  geom_spatvector(data=mpa,aes(fill=factor(NAME_E)),col='blue',lwd=1.25)+
+  geom_spatvector(data=rv,fill=NA,col='red')+
+  geom_point(data=dat.ziff,aes(longitude,latitude),alpha=0.5)+
+  theme_bw()
+
+
+# combine the two shapefiles as if they were originally a single shapefile
+library('terra')
+
+# first need to make names match
+names(rv)
+names(mpa)
+
+rv$NAME<-as.character(rv$id)
+mpa$NAME<-as.character(mpa$NAME_E)
+
+shape<-rbind(rv,mpa)
+shape<-shape[, c("NAME")]
+shape
+
+ggplot()+
+  geom_spatvector(data=shape,aes(fill=factor(NAME)),alpha=0.25)+
+  theme_bw()
+  
+```
+
+Now use function `assign_points_secr`
+```{r results = "hold"}
+x<-assign_points_secr(dat.ziff[,'longitude'],
+                        dat.ziff[,'latitude'],
+                        shape,"NAME")
+
+polygon<-x$assigned.polygon
+
+df2<-cbind(dat.ziff,polygon)
+```
+
+Using function `table` shows that 69 data points fall within the area in which stratum 416 overlaps with Banc-des-Américains Marine Protected Area. All other assigned points belong to non-overlapping polygon areas.
+```{r results = "hold"}
+table(df2$polygon)
+
+ggplot()+
+  geom_spatvector(data=shape,fill=NA)+
+  geom_point(data=df2,aes(longitude,latitude,col=polygon),alpha=0.5)+
+  theme_bw()
+
+```
+
+
+## Assigning points to the nearest polygon
+Finally, the previous examples show that a number of data points don't overlap with any of the polygons in our shapefiles. But what if we wanted to find out which polygons they were closest to? Then we could use function `assign_points_to_nearest_polygon`.
+
+```{r results = "hold"}
+# get the unassigned data points
+pts.outside<-df2[which(is.na(df2$polygon)),]
+
+x<-assign_points_to_nearest_polygon(pts.outside$longitude, pts.outside$latitude, shape, 'NAME')
+
+head(x)
+
+ggplot()+
+  geom_spatvector(data=shape,fill=NA)+
+  geom_point(data=x,aes(x,y,col=NAME),alpha=0.5)+
+  theme_bw()
+
+```
