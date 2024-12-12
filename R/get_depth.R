@@ -21,6 +21,7 @@ get_depth<-function(lon,lat,crs='epsg:4269'){
   xy <- cbind(lon, lat)
 
   out<-terra::extract(sr, xy)
+  out<-unlist(out)
   #names(out)<-'depth'
 
   return(out)
