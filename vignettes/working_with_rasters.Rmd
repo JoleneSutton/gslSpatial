@@ -24,7 +24,7 @@ knitr::opts_chunk$set(
   3. Export the results as either a data frame or a SpatRaster
   
   
-```{r setup}
+```{r setup, warning = FALSE, message = FALSE}
 library(gslSpatial)
 library(ggplot2)
 library(terra)
