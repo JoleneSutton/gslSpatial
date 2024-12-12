@@ -65,10 +65,129 @@
 
     
     
-<p><strong>vignette pending</strong></p>
+<p><strong>vignette under construction</strong></p>
+<div class="section level2">
+<h2 id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Make square 10 km X 10 km grid cells over the GSL</li>
+<li>Summarise fishery catch data over the grids</li>
+<li>Export the results as either a data frame or a SpatRaster</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/JoleneSutton/gslSpatial" class="external-link">gslSpatial</a></span><span class="op">)</span></span></code></pre></div>
-  </main>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/JoleneSutton/gslSpatial" class="external-link">gslSpatial</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://rspatial.org/" class="external-link">terra</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; terra 1.7.83</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/" class="external-link">tidyterra</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'tidyterra'</span></span>
+<span><span class="co">#&gt; The following object is masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="make-square-grids">Make square grids<a class="anchor" aria-label="anchor" href="#make-square-grids"></a>
+</h2>
+<p>Use the <code>make_grid</code> function, specifying the grid cell
+size (resolution). Using a resolution of 10 makes each grid cell 10 km X
+10 km. The finer the resolution, the longer it will take to generate. By
+default, this function generates grid cells spanning all of NAFO
+3Pn4RST, and assigns the corresponding NAFO division or subdivision to
+each cell.</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">grid</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/make_grid.html">make_grid</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Source: https://www.nafo.int</span></span>
+<span><span class="co">#&gt; Assigning NAFO divisions to 3141 grid cells.</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 12:40:19</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 12:40:29</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 12:40:42</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 3141. 12:40:49</span></span></code></pre></div>
+<p>The resulting grid is a data frame. The coordinates are the centers
+of the grid cells. Longitude and latitude coordinates are NAD83,
+EPSG:4269, in decimal degrees. X and Y coordinates are NAD83, UTM zone
+20N, with units in km.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] "data.frame"</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span></span>
+<span><span class="co">#&gt;             X        Y area longitude latitude nafo.assigned</span></span>
+<span><span class="co">#&gt; 112  988.9978 5810.911    1 -55.83546 52.23061          &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 113  998.9978 5810.911   41 -55.69022 52.22166          &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 114 1008.9978 5810.911   92 -55.54506 52.21253            4R</span></span>
+<span><span class="co">#&gt; 115 1018.9978 5810.911   32 -55.39998 52.20322          &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 228  998.9978 5800.911   48 -55.70491 52.13248            4R</span></span>
+<span><span class="co">#&gt; 229 1008.9978 5800.911  100 -55.56003 52.12338            4R</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="plot-the-grid-showing-the-nafo-boundaries-">Plot the grid, showing the NAFO boundaries.<a class="anchor" aria-label="anchor" href="#plot-the-grid-showing-the-nafo-boundaries-"></a>
+</h3>
+<p>Notice that grid cells without assigned NAFO divisions have centers
+that fall outside the NAFO borders.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># get NAFO boundaries</span></span>
+<span><span class="va">naf</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_shapefile.html">get_shapefile</a></span><span class="op">(</span><span class="st">'nafo.clipped'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Source: https://www.nafo.int</span></span>
+<span><span class="va">naf</span><span class="op">&lt;-</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">naf</span>, <span class="st">'+proj=utm +zone=20 +datum=NAD83 +units=km +no_defs'</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">grid</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,fill<span class="op">=</span><span class="va">nafo.assigned</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">naf</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
+<p><img src="working_with_rasters_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+</div>
+<div class="section level3">
+<h3 id="restrict-by-location-and-depth">Restrict by location and depth<a class="anchor" aria-label="anchor" href="#restrict-by-location-and-depth"></a>
+</h3>
+<ul>
+<li>Restrict to NAFO 4T</li>
+<li>Use function <code>get_depth</code> to estimate depth in meters. Use
+?gslSpatial::get_depth for details.</li>
+<li>Remove grid cells with depths shallower than 5 meters.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">grid</span><span class="op">&lt;-</span><span class="va">grid</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">grid</span><span class="op">$</span><span class="va">nafo.assigned</span><span class="op">==</span><span class="st">"4T"</span><span class="op">)</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="va">depth</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_depth.html">get_depth</a></span><span class="op">(</span><span class="va">grid</span><span class="op">$</span><span class="va">longitude</span>,<span class="va">grid</span><span class="op">$</span><span class="va">latitude</span>,<span class="st">"epsg:4269"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; The default argument assumes your points have crs NAD83 - EPSG:4269.</span></span>
+<span><span class="co">#&gt; Assigning depths based on GEBCO_2024, www.gebco.net.</span></span>
+<span><span class="va">grid</span><span class="op">$</span><span class="va">depth</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">depth</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">grid</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 'data.frame':    1169 obs. of  7 variables:</span></span>
+<span><span class="co">#&gt;  $ X            : num  189 199 209 219 159 ...</span></span>
+<span><span class="co">#&gt;  $ Y            : num  5481 5481 5481 5481 5471 ...</span></span>
+<span><span class="co">#&gt;  $ area         : num  63 100 100 100 61 69 68 100 100 100 ...</span></span>
+<span><span class="co">#&gt;  $ longitude    : num  -67.3 -67.1 -67 -66.9 -67.7 ...</span></span>
+<span><span class="co">#&gt;  $ latitude     : num  49.4 49.4 49.4 49.4 49.3 ...</span></span>
+<span><span class="co">#&gt;  $ nafo.assigned: chr  "4T" "4T" "4T" "4T" ...</span></span>
+<span><span class="co">#&gt;  $ depth        : num  -11 -185 -289.9 -296 -35.9 ...</span></span>
+<span></span>
+<span><span class="va">grid</span><span class="op">&lt;-</span><span class="va">grid</span><span class="op">[</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">grid</span><span class="op">$</span><span class="va">depth</span><span class="op">&gt;</span><span class="op">(</span><span class="op">-</span><span class="fl">5</span><span class="op">)</span><span class="op">)</span>,<span class="op">]</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">grid</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,fill<span class="op">=</span><span class="va">depth</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">naf</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p><img src="working_with_rasters_files/figure-html/unnamed-chunk-5-1.png" width="700"></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="get-catch-data">Get catch data<a class="anchor" aria-label="anchor" href="#get-catch-data"></a>
+</h2>
+<div class="section level3">
+<h3 id="plot-raw-data">Plot raw data<a class="anchor" aria-label="anchor" href="#plot-raw-data"></a>
+</h3>
+</div>
+<div class="section level3">
+<h3 id="summarise">Summarise<a class="anchor" aria-label="anchor" href="#summarise"></a>
+</h3>
+</div>
+<div class="section level3">
+<h3 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
+</h3>
+</div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
