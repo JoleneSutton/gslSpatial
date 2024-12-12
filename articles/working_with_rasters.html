@@ -93,10 +93,10 @@ each cell.</p>
 <code class="sourceCode R"><span><span class="va">grid</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/make_grid.html">make_grid</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Source: https://www.nafo.int</span></span>
 <span><span class="co">#&gt; Assigning NAFO divisions to 3141 grid cells.</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 13:21:39</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 13:21:48</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 13:22:02</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 3141. 13:22:09</span></span></code></pre></div>
+<span><span class="co">#&gt; Processing points 1 to 1000. 13:31:52</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 13:32:01</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 13:32:15</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 3141. 13:32:22</span></span></code></pre></div>
 <p>The resulting grid is a data frame. The coordinates are the centers
 of the grid cells. Longitude and latitude coordinates are NAD83,
 EPSG:4269, in decimal degrees. X and Y coordinates are NAD83, UTM zone
@@ -141,7 +141,6 @@ that fall outside the NAFO borders.</p>
 <code class="sourceCode R"><span><span class="va">grid</span><span class="op">&lt;-</span><span class="va">grid</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">grid</span><span class="op">$</span><span class="va">nafo.assigned</span><span class="op">==</span><span class="st">"4T"</span><span class="op">)</span>,<span class="op">]</span></span>
 <span></span>
 <span><span class="va">depth</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_depth.html">get_depth</a></span><span class="op">(</span><span class="va">grid</span><span class="op">$</span><span class="va">longitude</span>,<span class="va">grid</span><span class="op">$</span><span class="va">latitude</span>,<span class="st">"epsg:4269"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; The default argument assumes your points have crs NAD83 - EPSG:4269.</span></span>
 <span><span class="co">#&gt; Assigning depths based on GEBCO_2024, www.gebco.net.</span></span>
 <span><span class="va">grid</span><span class="op">$</span><span class="va">depth</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/unlist.html" class="external-link">unlist</a></span><span class="op">(</span><span class="va">depth</span><span class="op">)</span></span>
