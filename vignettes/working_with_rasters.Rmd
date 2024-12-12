@@ -1,0 +1,21 @@
+---
+title: "Working with raster objects"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{working_with_rasters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+**vignette pending**
+
+```{r setup}
+library(gslSpatial)
+```
