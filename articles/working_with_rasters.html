@@ -65,13 +65,14 @@
 
     
     
-<p><strong>vignette under construction</strong></p>
+<p><span style="color:red"><strong>vignette under
+construction</strong></span></p>
 <div class="section level2">
 <h2 id="objectives">Objectives<a class="anchor" aria-label="anchor" href="#objectives"></a>
 </h2>
 <ol style="list-style-type: decimal">
 <li>Make square 10 km X 10 km grid cells over the GSL</li>
-<li>Summarise fishery catch data over the grids</li>
+<li>Summarise fishery catch data</li>
 <li>Export the results as either a data frame or a SpatRaster</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
@@ -93,10 +94,10 @@ each cell.</p>
 <code class="sourceCode R"><span><span class="va">grid</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/make_grid.html">make_grid</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Source: https://www.nafo.int</span></span>
 <span><span class="co">#&gt; Assigning NAFO divisions to 3141 grid cells.</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 13:31:52</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 13:32:01</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 13:32:15</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 3141. 13:32:22</span></span></code></pre></div>
+<span><span class="co">#&gt; Processing points 1 to 1000. 15:46:33</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 15:46:42</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 15:46:56</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 3141. 15:47:03</span></span></code></pre></div>
 <p>The resulting grid is a data frame. The coordinates are the centers
 of the grid cells. Longitude and latitude coordinates are NAD83,
 EPSG:4269, in decimal degrees. X and Y coordinates are NAD83, UTM zone
@@ -170,10 +171,10 @@ that fall outside the NAFO borders.</p>
 <h3 id="plot-raw-data">Plot raw data<a class="anchor" aria-label="anchor" href="#plot-raw-data"></a>
 </h3>
 </div>
-<div class="section level3">
-<h3 id="summarise">Summarise<a class="anchor" aria-label="anchor" href="#summarise"></a>
-</h3>
 </div>
+<div class="section level2">
+<h2 id="summarise">Summarise<a class="anchor" aria-label="anchor" href="#summarise"></a>
+</h2>
 <div class="section level3">
 <h3 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
 </h3>
