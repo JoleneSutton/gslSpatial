@@ -15,12 +15,12 @@ knitr::opts_chunk$set(
 ```
 
 
-**vignette under construction**
+<span style="color:red">**vignette under construction**</span>
 
 # Objectives
 
   1. Make square 10 km X 10 km grid cells over the GSL
-  2. Summarise fishery catch data over the grids
+  2. Summarise fishery catch data
   3. Export the results as either a data frame or a SpatRaster
   
   
@@ -80,7 +80,7 @@ ggplot()+
 
 ## Plot raw data
 
-## Summarise
+# Summarise
 
 ## Plot
 
