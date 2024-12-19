@@ -1,4 +1,4 @@
-#' Compute summary statistics of variables in a data frame for each polygon in a shapefile
+#' Compute summary statistics of a variable over polygons in a shapefile
 #'
 #' Note that data points that don't overlap with any polygons will be ignored.
 #'
