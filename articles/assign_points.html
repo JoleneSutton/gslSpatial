@@ -87,6 +87,8 @@ rather than the centroids, of polygons.</li>
 research vessel survey strata and/or Marine Protected Areas.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/JoleneSutton/gslSpatial" class="external-link">gslSpatial</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Error in get(paste0(generic, ".", class), envir = get_method_env()) : </span></span>
+<span><span class="co">#&gt;   object 'type_sum.accel' not found</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dieghernan.github.io/tidyterra/" class="external-link">tidyterra</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
@@ -152,11 +154,11 @@ polygons</p>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/assign_points_terra.html">assign_points_terra</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">longitude</span>, <span class="va">df</span><span class="op">$</span><span class="va">latitude</span>,<span class="va">rv</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 15:46:00</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 15:46:00</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 15:46:00</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 4000. 15:46:00</span></span>
-<span><span class="co">#&gt; Processing points 4001 to 4559. 15:46:00</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 18:35:16</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 18:35:16</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 18:35:16</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 4000. 18:35:16</span></span>
+<span><span class="co">#&gt; Processing points 4001 to 4559. 18:35:16</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          x       y assigned.polygon</span></span>
 <span><span class="co">#&gt; 1 -60.4406 47.2421              437</span></span>
@@ -270,11 +272,11 @@ shapefile.</p>
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/assign_points_secr.html">assign_points_secr</a></span><span class="op">(</span><span class="va">dat.ziff</span><span class="op">[</span>,<span class="st">'longitude'</span><span class="op">]</span>,</span>
 <span>                        <span class="va">dat.ziff</span><span class="op">[</span>,<span class="st">'latitude'</span><span class="op">]</span>,</span>
 <span>                        <span class="va">shape</span>,<span class="st">"NAME"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 15:46:02</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 15:46:03</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 15:46:04</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 4000. 15:46:04</span></span>
-<span><span class="co">#&gt; Processing points 4001 to 4559. 15:46:04</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 18:35:18</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 18:35:19</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 18:35:20</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 4000. 18:35:20</span></span>
+<span><span class="co">#&gt; Processing points 4001 to 4559. 18:35:21</span></span>
 <span></span>
 <span><span class="va">polygon</span><span class="op">&lt;-</span><span class="va">x</span><span class="op">$</span><span class="va">assigned.polygon</span></span>
 <span></span>
