@@ -2,7 +2,7 @@
 % Please edit documentation in R/aggregate_polygons.R
 \name{aggregate_polygons}
 \alias{aggregate_polygons}
-\title{Compute summary statistics of variables in a data frame for each polygon in a shapefile}
+\title{Compute summary statistics of a variable over polygons in a shapefile}
 \usage{
 aggregate_polygons(x, y, var, polygons, polygons.var, fun)
 }
