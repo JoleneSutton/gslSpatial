@@ -24,12 +24,12 @@ Imports:
     raster (>= 3.5.15),
     secr (>= 4.6.1),
     sf (>= 1.0.0),
-    sp (>= 2.1.0)
+    sp (>= 2.1.0),
+    tidyterra (>= 0.6.1)
 Remotes: 
     github::JoleneSutton/eclectic
 Suggests: 
     knitr,
-    rmarkdown,
-    tidyterra (>= 0.6.1)
+    rmarkdown
 VignetteBuilder: knitr
 LazyData: true
