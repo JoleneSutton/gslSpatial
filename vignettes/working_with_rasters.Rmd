@@ -15,8 +15,6 @@ knitr::opts_chunk$set(
 ```
 
 
-<span style="color:red">**vignette under construction**</span>
-
 # Objectives
 
   1. Make square 10 km X 10 km grid cells over the GSL
