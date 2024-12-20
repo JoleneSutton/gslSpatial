@@ -72,8 +72,8 @@ construction</strong></span></p>
 </h2>
 <ol style="list-style-type: decimal">
 <li>Make square 10 km X 10 km grid cells over the GSL</li>
-<li>Summarise fishery catch data</li>
-<li>Export the results as either a data frame or a SpatRaster</li>
+<li>Summarise sGSL Research Vessel catch data</li>
+<li>Get the results as either a data frame or a SpatRaster</li>
 </ol>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/JoleneSutton/gslSpatial" class="external-link">gslSpatial</a></span><span class="op">)</span></span>
@@ -90,16 +90,16 @@ construction</strong></span></p>
 size (resolution). Using a resolution of 10 makes each grid cell 10 km X
 10 km. The finer the resolution, the longer it will take to generate. By
 default, this function generates grid cells spanning all of NAFO
-3Pn4RST, and assigns the corresponding NAFO division or subdivision to
+3Pn4RSTVn, and assigns the corresponding NAFO division or subdivision to
 each cell.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">grid</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/make_grid.html">make_grid</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Source: https://www.nafo.int</span></span>
 <span><span class="co">#&gt; Assigning NAFO divisions to 3141 grid cells.</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 15:02:43</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 15:02:56</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 15:03:14</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 3141. 15:03:24</span></span></code></pre></div>
+<span><span class="co">#&gt; Processing points 1 to 1000. 16:58:39</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 16:58:48</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 16:59:01</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 3141. 16:59:08</span></span></code></pre></div>
 <p>The resulting grid is a data frame. The coordinates are the centers
 of the grid cells. Longitude and latitude coordinates are NAD83,
 EPSG:4269, in decimal degrees. X and Y coordinates are NAD83, UTM zone
@@ -169,17 +169,88 @@ that fall outside the NAFO borders.</p>
 <div class="section level2">
 <h2 id="get-catch-data">Get catch data<a class="anchor" aria-label="anchor" href="#get-catch-data"></a>
 </h2>
+<p>This example uses sGSL September Research Vessel catch densities
+(kg/tow) of white hake (‘whake.kg.tow’). The data set includes spatial
+coordinates in UTM as well as lat/lon. The coordinate reference system
+of the ‘X’ and ‘Y’ columns is UTM NAD83, Zone:20N, Units:km. The
+coordinate reference system of the ‘longitude’ and ‘latitude’ columns is
+NAD83, EPSG:4269, decimal degrees.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">dat</span><span class="op">&lt;-</span><span class="va">dat.rv</span><span class="op">[</span>,<span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">]</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">dat</span><span class="op">)</span></span>
+<span><span class="co">#&gt;           X        Y longitude latitude year   depth whake.kg.tow</span></span>
+<span><span class="co">#&gt; 6  313.8402 5308.708 -65.49108 47.90467 2018 52.5536            0</span></span>
+<span><span class="co">#&gt; 7  290.4235 5317.821 -65.80850 47.97933 2019 31.7084            0</span></span>
+<span><span class="co">#&gt; 8  288.4847 5329.066 -65.84000 48.07975 2020 26.9360            0</span></span>
+<span><span class="co">#&gt; 9  306.6000 5291.646 -65.58025 47.74917 2021 29.2280            0</span></span>
+<span><span class="co">#&gt; 10 288.8187 5322.182 -65.83213 48.01800 2022 30.7900            0</span></span>
+<span><span class="co">#&gt; 42 350.8052 5323.713 -65.00200 48.04925 2018 64.1984            0</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="plot-raw-data">Plot raw data<a class="anchor" aria-label="anchor" href="#plot-raw-data"></a>
 </h3>
+<p>This figure also shows the sGSL September Reearch Vessel survey
+strata.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">rv</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_shapefile.html">get_shapefile</a></span><span class="op">(</span><span class="st">'rv.sgsl'</span><span class="op">)</span></span>
+<span><span class="co">#&gt; sGSL September RV Survey</span></span>
+<span><span class="va">rv</span><span class="op">&lt;-</span><span class="fu">terra</span><span class="fu">::</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/project.html" class="external-link">project</a></span><span class="op">(</span><span class="va">rv</span>,<span class="va">naf</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">grid</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span>,fill<span class="op">=</span><span class="st">'white'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">rv</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">dat</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,size<span class="op">=</span><span class="va">whake.kg.tow</span><span class="op">)</span>,alpha<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span></code></pre></div>
+<p><img src="working_with_rasters_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
 </div>
 </div>
 <div class="section level2">
 <h2 id="summarise">Summarise<a class="anchor" aria-label="anchor" href="#summarise"></a>
 </h2>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/aggregate_raster.html">aggregate_raster</a></span><span class="op">(</span><span class="va">dat</span>,<span class="st">"whake.kg.tow"</span>,<span class="va">sum</span>,<span class="va">grid</span>,out<span class="op">=</span><span class="st">'df'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">[</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/dimensions.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">]</span><span class="op">&lt;-</span><span class="st">'sum.hake'</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="co">#&gt;            X        Y  sum.hake</span></span>
+<span><span class="co">#&gt; 375 418.9978 5440.911  1.833807</span></span>
+<span><span class="co">#&gt; 376 428.9978 5440.911  8.968344</span></span>
+<span><span class="co">#&gt; 457 428.9978 5430.911 37.424866</span></span>
+<span><span class="co">#&gt; 458 438.9978 5430.911  7.786280</span></span>
+<span><span class="co">#&gt; 537 418.9978 5420.911 30.566967</span></span>
+<span><span class="co">#&gt; 538 428.9978 5420.911 22.716385</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">sum.hake</span><span class="op">)</span></span>
+<span><span class="co">#&gt;    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span><span class="co">#&gt;   0.000   0.000   0.000   4.466   0.000 231.762</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="plot">Plot<a class="anchor" aria-label="anchor" href="#plot"></a>
 </h3>
+<p>The coloured grid cells show where white hake was caught, with the
+colour representing the total amoung of white hake that was caught.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">grid</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span>,fill<span class="op">=</span><span class="st">'white'</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">rv</span>,fill<span class="op">=</span><span class="cn">NA</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_tile</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">x</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">sum.hake</span><span class="op">&gt;</span><span class="fl">0</span><span class="op">)</span>,<span class="op">]</span>,</span>
+<span>            <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,fill<span class="op">=</span><span class="va">sum.hake</span><span class="op">)</span><span class="op">)</span><span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_viridis_c</a></span><span class="op">(</span>direction<span class="op">=</span><span class="op">-</span><span class="fl">1</span>,</span>
+<span>                       name<span class="op">=</span><span class="st">"Total kg"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="working_with_rasters_files/figure-html/unnamed-chunk-9-1.png" width="700"></p>
+</div>
+<div class="section level3">
+<h3 id="alternatively-summarise-to-a-spatraster">Alternatively, summarise to a SpatRaster<a class="anchor" aria-label="anchor" href="#alternatively-summarise-to-a-spatraster"></a>
+</h3>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">x2</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/aggregate_raster.html">aggregate_raster</a></span><span class="op">(</span><span class="va">dat</span>,<span class="st">"whake.kg.tow"</span>,<span class="va">sum</span>,<span class="va">grid</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/crs.html" class="external-link">crs</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rspatial.github.io/terra/reference/crs.html" class="external-link">crs</a></span><span class="op">(</span><span class="va">naf</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rspatial.github.io/terra/reference/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x2</span><span class="op">)</span><span class="op">[</span><span class="fl">2</span><span class="op">]</span><span class="op">&lt;-</span><span class="st">'sum.hake'</span></span>
+<span><span class="va">x2</span></span>
+<span><span class="co">#&gt; class       : SpatRaster </span></span>
+<span><span class="co">#&gt; dimensions  : 43, 81, 2  (nrow, ncol, nlyr)</span></span>
+<span><span class="co">#&gt; resolution  : 10, 10  (x, y)</span></span>
+<span><span class="co">#&gt; extent      : -86.00223, 723.9978, 5055.911, 5485.911  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : +proj=utm +zone=20 +datum=NAD83 +units=km +no_defs </span></span>
+<span><span class="co">#&gt; source(s)   : memory</span></span>
+<span><span class="co">#&gt; names       :   ID, sum.hake </span></span>
+<span><span class="co">#&gt; min values  :    4,   0.0000 </span></span>
+<span><span class="co">#&gt; max values  : 7645, 231.7623</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
