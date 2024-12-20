@@ -20,8 +20,8 @@ knitr::opts_chunk$set(
 # Objectives
 
   1. Make square 10 km X 10 km grid cells over the GSL
-  2. Summarise fishery catch data
-  3. Export the results as either a data frame or a SpatRaster
+  2. Summarise sGSL Research Vessel catch data
+  3. Get the results as either a data frame or a SpatRaster
   
   
 ```{r setup, warning = FALSE, message = FALSE}
@@ -32,7 +32,7 @@ library(tidyterra)
 ```
 
 # Make square grids
-Use the `make_grid` function, specifying the grid cell size (resolution). Using a resolution of 10 makes each grid cell 10 km X 10 km. The finer the resolution, the longer it will take to generate. By default, this function generates grid cells spanning all of NAFO 3Pn4RST, and assigns the corresponding NAFO division or subdivision to each cell.
+Use the `make_grid` function, specifying the grid cell size (resolution). Using a resolution of 10 makes each grid cell 10 km X 10 km. The finer the resolution, the longer it will take to generate. By default, this function generates grid cells spanning all of NAFO 3Pn4RSTVn, and assigns the corresponding NAFO division or subdivision to each cell.
 
 ```{r }
 grid<-make_grid(10)
@@ -77,12 +77,49 @@ ggplot()+
 ```
 
 # Get catch data
+This example uses sGSL September Research Vessel catch densities (kg/tow) of white hake ('whake.kg.tow'). The data set includes spatial coordinates in UTM as well as lat/lon. The coordinate reference system of the 'X' and 'Y' columns is UTM NAD83, Zone:20N, Units:km. The coordinate reference system of the 'longitude' and 'latitude' columns is NAD83, EPSG:4269, decimal degrees.
+```{r }
+dat<-dat.rv[,1:7]
+head(dat)
+```
 
 ## Plot raw data
+This figure also shows the sGSL September Reearch Vessel survey strata.
+```{r }
+rv<-get_shapefile('rv.sgsl')
+rv<-terra::project(rv,naf)
+
+ggplot()+
+  geom_tile(data=grid,aes(X,Y),fill='white')+
+  geom_spatvector(data=rv,fill=NA)+
+  geom_point(data=dat,aes(X,Y,size=whake.kg.tow),alpha=0.5)
+```
 
 # Summarise
+```{r }
+x<-aggregate_raster(dat,"whake.kg.tow",sum,grid,out='df')
+names(x)[ncol(x)]<-'sum.hake'
+head(x)
+summary(x$sum.hake)
+```
 
 ## Plot
+The coloured grid cells show where white hake was caught, with the colour representing the total amoung of white hake that was caught.
+```{r }
+ggplot()+
+  geom_tile(data=grid,aes(X,Y),fill='white')+
+  geom_spatvector(data=rv,fill=NA)+
+  geom_tile(data=x[which(x$sum.hake>0),],
+            aes(X,Y,fill=sum.hake))+
+  scale_fill_viridis_c(direction=-1,
+                       name="Total kg")
 
+```
 
-
+## Alternatively, summarise to a SpatRaster
+```{r}
+x2<-aggregate_raster(dat,"whake.kg.tow",sum,grid)
+crs(x2)<-crs(naf)
+names(x2)[2]<-'sum.hake'
+x2
+```
