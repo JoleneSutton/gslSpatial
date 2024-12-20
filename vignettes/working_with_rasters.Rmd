@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
   3. Get the results as either a data frame or a SpatRaster
   
   
-```{r setup, warning = FALSE, message = FALSE}
+```{r setup, warning = FALSE, message = FALSE,error=FALSE}
 library(gslSpatial)
 library(ggplot2)
 library(terra)

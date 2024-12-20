@@ -23,7 +23,7 @@ There are three functions that can assign points (coordinates) to polygons:
 The examples below assign fishing coordinates to DFO September research vessel survey strata and/or Marine Protected Areas.
 
 
-```{r setup, warning = FALSE, message = FALSE}
+```{r setup, warning = FALSE, message = FALSE,error=FALSE}
 library(gslSpatial)
 library(ggplot2)
 library(tidyterra)
