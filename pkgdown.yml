@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   assign_points: assign_points.html
-last_built: 2025-01-06T16:35Z
+last_built: 2025-01-06T17:20Z
 urls:
   reference: https://jolenesutton.github.io/gslSpatial/reference
   article: https://jolenesutton.github.io/gslSpatial/articles
