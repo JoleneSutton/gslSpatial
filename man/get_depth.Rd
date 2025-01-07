@@ -18,6 +18,8 @@ Returns depths in meters.
 The bathymetry reference used is GEBCO_2024, www.gebco.net.
 }
 \examples{
+\dontrun{
 get_depth(-62,44)
+}
 
 }
