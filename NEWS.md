@@ -3,8 +3,6 @@
 
 * Increased extent of GEBCO bathymetry reference to include NAFO divisions 3 through 5.
 
-* Development version ready for beta testing
-
 # gslSpatial 0.0.0.9001
 **2024-12-20**
 
