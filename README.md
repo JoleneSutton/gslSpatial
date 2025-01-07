@@ -20,12 +20,11 @@ Vignettes can be found
 
 ## Installation
 
-**gslSpatial** requires the package
-[**eclectic**](https://jolenesutton.github.io/eclectic/index.html). When
-you install **gslSpatial**, the **eclectic** package will also be
-installed.
+When you install **gslSpatial**, the
+[**eclectic**](https://jolenesutton.github.io/eclectic/index.html)
+package will also be installed.
 
-You install **gslSpatial**, use:
+To install **gslSpatial**, use:
 
 ``` r
 # install.packages("devtools")
