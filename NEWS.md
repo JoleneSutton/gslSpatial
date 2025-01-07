@@ -1,9 +1,16 @@
-# gslSpatial 0.0.0.9000
-**2024-11-19**
+# gslSpatial 0.0.0.9002
+**2025-01-07**
 
-* Create package
+* Increased extent of GEBCO bathymetry reference to include NAFO divisions 3 through 5.
+
+* Development version ready for beta testing
 
 # gslSpatial 0.0.0.9001
 **2024-12-20**
 
 * Development version ready for beta testing
+
+# gslSpatial 0.0.0.9000
+**2024-11-19**
+
+* Create package
