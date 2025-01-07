@@ -32,6 +32,14 @@ You install **gslSpatial**, use:
 devtools::install_github("JoleneSutton/gslSpatial")
 ```
 
+Due to the size of **gslSpatial 0.0.0.9002**, the installation might
+fail due to timeout issues. In that case, try:
+
+``` r
+options(timeout=400)
+devtools::install_github("JoleneSutton/gslSpatial")
+```
+
 If you have trouble installing with `devtools::install_github`, try:
 
 ``` r
