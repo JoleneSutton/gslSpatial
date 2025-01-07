@@ -8,10 +8,7 @@
 #' @importFrom terra project rast extract
 #' @import raster
 #' @examples
-#' \dontrun{
-#' get_depth(-62,44)
-#' }
-#'
+#' #get_depth(-62,44)
 #' @export
 get_depth<-function(lon,lat,crs='epsg:4269'){
   writeLines("Assigning depths based on GEBCO_2024, www.gebco.net.\n")
