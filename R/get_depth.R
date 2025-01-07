@@ -7,12 +7,15 @@
 #' @param crs Coordinate reference system for lon and lat. Default is NAD83, EPSG:4269
 #' @importFrom terra project rast extract
 #' @import raster
+#' @examples
+#' get_depth(-62,44)
+#'
 #' @export
 get_depth<-function(lon,lat,crs='epsg:4269'){
   writeLines("The default argument assumes your points have crs NAD83 - EPSG:4269.\nAssigning depths based on GEBCO_2024, www.gebco.net.\n")
 
   # stored internal gebco layer as RasterLayer b/c terra would not read back in properly
-  sr<-get0("gebco", envir = asNamespace("gslSpatial"))
+  sr<-get0("gebco.large", envir = asNamespace("gslSpatial"))
   names(sr)<-'depth'
 
   sr<-terra::rast(sr)
