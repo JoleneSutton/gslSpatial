@@ -3,6 +3,7 @@
 <url><loc>https://jolenesutton.github.io/gslSpatial/LICENSE.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/articles/assign_points.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/articles/index.html</loc></url>
+<url><loc>https://jolenesutton.github.io/gslSpatial/articles/working_with_rasters.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/authors.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/index.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/news/index.html</loc></url>
@@ -18,9 +19,9 @@
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/dat.visreg.fits.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/dat.ziff.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/format_grid_manually.html</loc></url>
-<url><loc>https://jolenesutton.github.io/gslSpatial/reference/gebco.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/get_depth.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/get_shapefile.html</loc></url>
+<url><loc>https://jolenesutton.github.io/gslSpatial/reference/gslSpatial-package.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/hex.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/index.html</loc></url>
 <url><loc>https://jolenesutton.github.io/gslSpatial/reference/make_grid.html</loc></url>
