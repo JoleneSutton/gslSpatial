@@ -38,11 +38,3 @@ fail due to timeout issues. In that case, try:
 options(timeout=400)
 devtools::install_github("JoleneSutton/gslSpatial")
 ```
-
-If you have trouble installing with `devtools::install_github`, try:
-
-``` r
-# install.packages("remotes")
-Sys.setenv("R_REMOTES_NO_ERRORS_FROM_WARNINGS" = "true")
-remotes::install_github("JoleneSutton/gslSpatial")
-```
