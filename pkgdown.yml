@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   assign_points: assign_points.html
   working_with_rasters: working_with_rasters.html
-last_built: 2025-01-07T16:02Z
+last_built: 2025-01-08T11:06Z
 urls:
   reference: https://jolenesutton.github.io/gslSpatial/reference
   article: https://jolenesutton.github.io/gslSpatial/articles
