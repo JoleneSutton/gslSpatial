@@ -22,7 +22,7 @@ Union specified polygons within a shapefile.
 \dontrun{
 library(gslSpatial)
 library(terra)
-librarY(tidyterra)
+library(tidyterra)
 library(ggplot2)
 v <- vect(system.file("ex/lux.shp", package="terra"))
 ggplot()+geom_spatvector(data=v)+geom_spatvector_text(data=v,aes(label=NAME_2))

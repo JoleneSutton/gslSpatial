@@ -30,10 +30,6 @@ When you install **gslSpatial**, the [**eclectic**](https://jolenesutton.github.
 To install **gslSpatial**, use:
 ``` r
 # install.packages("devtools")
-devtools::install_github("JoleneSutton/gslSpatial")
-```
-Due to the size of **gslSpatial 0.0.0.9002**, the installation might fail due to timeout issues. In that case, try:
-``` r
 options(timeout=400)
 devtools::install_github("JoleneSutton/gslSpatial")
 ```
