@@ -1,4 +1,7 @@
-# gslSpatial (development version)
+# gslSpatial 0.0.0.9003
+**2025-02-03**
+
+* New function: `union_polygons`
 
 # gslSpatial 0.0.0.9002
 **2025-01-07**
