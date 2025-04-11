@@ -4,7 +4,7 @@
 \name{gslSpatial-package}
 \alias{gslSpatial}
 \alias{gslSpatial-package}
-\title{gslSpatial: An R package to assist with spatial analysis in the Gulf of St. Lawrence region}
+\title{gslSpatial: R package to assist with spatial analysis in the Gulf of St. Lawrence region}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
