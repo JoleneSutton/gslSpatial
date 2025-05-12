@@ -16,8 +16,8 @@ reference:
   - get_shapefile
   - make_grid
   - make_polygon
-  - union_polygons
   - transform_coords
+  - union_polygons
 - title: Data
   contents:
   - dat.rv
