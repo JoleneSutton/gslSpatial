@@ -1,3 +1,8 @@
+# gslSpatial 0.0.0.9004
+**2025-05-21**
+
+* New function: `transform_coords`
+
 # gslSpatial 0.0.0.9003
 **2025-02-03**
 
