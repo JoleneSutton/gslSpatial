@@ -1,6 +1,6 @@
 Package: gslSpatial
 Title: R package to assist with spatial analysis in the Gulf of St. Lawrence region
-Version: 0.0.0.9004
+Version: 0.0.0.9005
 Authors@R: c(
     person(c("Jolene", "T."), "Sutton", , "jolene.sutton@gmail.com",
            role = c("aut", "cre")),

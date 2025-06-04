@@ -1,3 +1,8 @@
+# gslSpatial 0.0.0.9005
+**2025-06-04**
+
+* New function: `assign_polygons`
+
 # gslSpatial 0.0.0.9004
 **2025-05-12**
 
