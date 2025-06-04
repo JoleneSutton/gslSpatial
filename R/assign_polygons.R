@@ -1,4 +1,4 @@
-#' Assign polygons from one polygon to polygon in another spatvector, based on greatest overlap
+#' Assign polygons in one spatvector to polygons in another spatvector, based on greatest overlap
 #'
 #' @param x A spatvector with one column. Want to assign polygons in x to polygons in y.
 #' @param y A spatvector with one column.
