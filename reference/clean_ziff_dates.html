@@ -71,16 +71,13 @@ Step 3) In cases where date.caught was "000000" or missing, the date.landed.upda
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">clean_ziff_dates</span><span class="op">(</span><span class="va">dat.ziff</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>,<span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0 missing 'date.landed' were updated to match 'date.caught'</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0 'date.landed' that came before 'date.caught' were </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> updated to match date.caught</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 0 missing 'date.caught' were updated to match 'date.landed.updated'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 0 missing 'date.landed' were updated to match 'date.caught'</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 0 'date.landed' that came before 'date.caught' were </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> updated to match date.caught</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 0 missing 'date.caught' were updated to match 'date.landed.updated'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                X        Y                           ancfvn date.landed</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6546100 693.6942 5235.246 de5f2296360a32a07b1868e68be0b8a8    20200427</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6547100 692.4206 5233.647 de5f2296360a32a07b1868e68be0b8a8    20200427</span>
