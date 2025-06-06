@@ -44,7 +44,7 @@ get_shapefile<-function(x){
     writeLines("10 x 10 km hex grid")
     #POLY<-terra::vect(system.file('extdata','hex_clipped/hex_clipped.shp',package='gslSpatial'))
     POLY<-readRDS(system.file('extdata','hex_list.rds',package='gslSpatial'))
-    POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:26920', keepgeom=F)
+    POLY<-terra::vect(POLY, geom=c("geometry"), crs='ESRI:102001', keepgeom=F)
     }
 
   if(x == 'rv.winter'){

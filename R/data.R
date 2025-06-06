@@ -96,7 +96,7 @@
 
 #' Hexagonal grid, 10x10km
 #'
-#' A shapefile created for the fisheriescape project, restricted to 3Pn4RSTVn. Accessed with get_shapefile('hex')
+#' A shapefile used in the fisheriescape project. CRS = ESRI:102001. Accessed with get_shapefile('hex')
 #'
 #' @format Retrieved as class SpatVector with get_shapefile('hex')
 "hex"

@@ -1,3 +1,8 @@
+# gslSpatial 0.0.0.9006
+**2025-06-06**
+
+* Replaced the original hexagonal grid with the one from [Koropatnick and Coffen-Smout, 2020](https://gcgeo.gc.ca/geonetwork/metadata/eng/572f6221-4d12-415e-9d5e-984b15d34da4).
+
 # gslSpatial 0.0.0.9005
 **2025-06-04**
 
