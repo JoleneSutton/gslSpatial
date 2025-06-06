@@ -37,7 +37,7 @@ assign_points_secr<-function(x,y,polygon,polygon.label){
     out <- matrix(nrow = length(ROWS),ncol = length(COLS))
 
 
-    writeLines(paste0("Processing points ",min(ROWS)," to ",max(ROWS),". ",format(Sys.time(), "%X")  ))
+    message(paste0("Processing points ",min(ROWS)," to ",max(ROWS),". ",format(Sys.time(), "%X")  ))
 
     for (i in 1:ncol(out)) {
       TMP <- as.data.frame(terra::geom(polygon[i, ]))
