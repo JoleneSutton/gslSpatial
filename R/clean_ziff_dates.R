@@ -22,7 +22,7 @@ clean_ziff_dates<-function(x){
   ziff$date.landed.updated<-ziff$date.landed
   ziff[index,"date.landed.updated"]<-ziff[index,"date.caught"]
 
-  writeLines(c("\n",
+  message(c("\n",
                paste0(c(eclectic::make_num_pretty(length(index))),
                       " missing 'date.landed' were updated to match 'date.caught'")))
 
@@ -37,7 +37,7 @@ clean_ziff_dates<-function(x){
   ##### if the date landed is BEFORE date caught, change date caught to date landed
   ziff[index,"date.landed.updated"]<-ziff[index,"date.caught"]
 
-  writeLines(c("\n",
+  message(c("\n",
                paste0(c(eclectic::make_num_pretty(length(index)))," 'date.landed' that came before 'date.caught' were \nupdated to match date.caught")))
 
   #//////////////////////////////////////////////////////////
@@ -49,7 +49,7 @@ clean_ziff_dates<-function(x){
   ziff$date.caught.updated<-ziff$date.caught
   ziff[index,"date.caught.updated"]<-ziff[index,"date.landed.updated"]
 
-  writeLines(c("\n",
+  message(c("\n",
                paste0(c(eclectic::make_num_pretty(length(index))),
                       " missing 'date.caught' were updated to match 'date.landed.updated'")))
 

@@ -29,7 +29,7 @@ assign_points_terra<-function(x,y,polygon){
   for(j in seq_along(actual_chunk_sizes)){
 
     ROWS<-seq_len(actual_chunk_sizes[j]) + (j-1)*chunk_size
-    writeLines(paste0("Processing points ",min(ROWS)," to ",max(ROWS),". ",format(Sys.time(), "%X")  ))
+    message(paste0("Processing points ",min(ROWS)," to ",max(ROWS),". ",format(Sys.time(), "%X")  ))
 
     pts.vect<-vect(as.data.frame(df[ROWS,]),
                    geom=c('x', 'y'),

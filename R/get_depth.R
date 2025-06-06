@@ -11,7 +11,7 @@
 #' #get_depth(-62,44)
 #' @export
 get_depth<-function(lon,lat,crs='epsg:4269'){
-  writeLines("Assigning depths based on GEBCO_2024, www.gebco.net.\n")
+  message("Assigning depths based on GEBCO_2024, www.gebco.net.\n")
 
   # stored internal gebco layer as RasterLayer b/c terra would not read back in properly
   sr<-get0("gebco.large", envir = asNamespace("gslSpatial"))
