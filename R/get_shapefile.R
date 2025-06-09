@@ -16,45 +16,45 @@ get_shapefile<-function(x){
     #POLY<-terra::vect(system.file('extdata','nafo_clipped/nafo_clipped.shp',package='gslSpatial'))
     POLY<-readRDS(system.file('extdata','nafo_clipped_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
-    writeLines("Source: https://www.nafo.int")
+    message("Source: https://www.nafo.int")
   }
 
   if(x == 'nafo'){
     #POLY<-terra::vect(system.file('extdata','nafo_unclipped/nafo_unclipped.shp',package='gslSpatial'))
     POLY<-readRDS(system.file('extdata','nafo_unclipped_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
-    writeLines("Source: https://www.nafo.int")
+    message("Source: https://www.nafo.int")
   }
 
   if(x == 'mpa'){
-    writeLines("Oceans Act Marine Protected Areas, source:https://open.canada.ca")
+    message("Oceans Act Marine Protected Areas, source: https://open.canada.ca")
     #POLY<-terra::vect(system.file('extdata','mpa_clipped/mpa_clipped.shp',package='gslSpatial'))
     POLY<-readRDS(system.file('extdata','mpa_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
 
   if(x == 'oecm'){
-    writeLines("Other Effective Area-Based Conservation Measures, source:https://open.canada.ca")
+    message("Other Effective Area-Based Conservation Measures, source: https://open.canada.ca")
     #POLY<-terra::vect(system.file('extdata','oeabcm_clipped/oeabcm_clipped.shp',package='gslSpatial'))
     POLY<-readRDS(system.file('extdata','oecm_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
 
   if(x == 'hex'){
-    writeLines("10 x 10 km hex grid")
+    message("10 x 10 km hex grid, source: https://gcgeo.gc.ca/geonetwork/metadata/eng/572f6221-4d12-415e-9d5e-984b15d34da4")
     #POLY<-terra::vect(system.file('extdata','hex_clipped/hex_clipped.shp',package='gslSpatial'))
     POLY<-readRDS(system.file('extdata','hex_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='ESRI:102001', keepgeom=F)
     }
 
   if(x == 'rv.winter'){
-    writeLines("GSL Winter RV Survey")
+    message("GSL Winter RV Survey")
     POLY<-readRDS(system.file('extdata','survey_rv_winter_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
 
   if(x == 'rv.sgsl'){
-    writeLines("sGSL September RV Survey")
+    message("sGSL September RV Survey")
     POLY<-readRDS(system.file('extdata','survey_rv_sgsl_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
