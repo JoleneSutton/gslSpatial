@@ -60,6 +60,7 @@ get_shapefile<-function(x){
   }
 
   if(x == 'coastline'){
+    message("https://www.cec.org/north-american-environmental-atlas/political-boundaries-2021/")
     POLY<-readRDS(system.file('extdata','coastline_list.rds',package='gslSpatial'))
     POLY<-terra::vect(POLY, geom=c("geometry"), crs='epsg:4269', keepgeom=F)
   }
