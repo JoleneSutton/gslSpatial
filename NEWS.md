@@ -1,3 +1,8 @@
+# gslSpatial 0.0.0.9007
+**2025-07-29**
+
+* Increased flexibility of function `convert_dms_to_dd`, to accommodate different reporting styles.
+
 # gslSpatial 0.0.0.9006
 **2025-06-06**
 

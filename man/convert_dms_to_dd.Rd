@@ -19,8 +19,13 @@ convert_dms_to_dd(x = NULL, deg = NULL, min = NULL, sec = NULL)
 Convert coordinates from degrees minutes seconds to decimal degrees
 }
 \examples{
-convert_dms_to_dd(x=454532.4)
-convert_dms_to_dd(x="454532.4")
-convert_dms_to_dd(x="45° 45’ 32.4")
-convert_dms_to_dd(deg=45, min=45, sec=32.4)
+convert_dms_to_dd(x="64° 10.8’")
+convert_dms_to_dd(x="64° 10.8’ 00.00")
+convert_dms_to_dd("64°10.8’")
+convert_dms_to_dd(deg="64°", min="10.8’", sec="45.6")
+convert_dms_to_dd(deg="64°", min="10.8’")
+convert_dms_to_dd(deg=64, min=10.8)
+convert_dms_to_dd("641045.6")
+convert_dms_to_dd(641045.6)
+convert_dms_to_dd(deg="64°", min="10’", sec="45.6")
 }

@@ -1,6 +1,6 @@
 Package: gslSpatial
 Title: R package to assist with spatial analysis in the Gulf of St. Lawrence region
-Version: 0.0.0.9006
+Version: 0.0.0.9007
 Authors@R: c(
     person(c("Jolene", "T."), "Sutton", , "jolene.sutton@gmail.com",
            role = c("aut", "cre")),
@@ -25,6 +25,7 @@ Imports:
     secr (>= 4.6.1),
     sf (>= 1.0.0),
     sp (>= 2.1.0),
+    stringr(>= 1.5.1),
     tidyterra (>= 0.6.1)
 Remotes: 
     github::JoleneSutton/eclectic
