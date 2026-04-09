@@ -26,10 +26,10 @@ each cell.
 grid<-make_grid(10)
 #> Source: https://www.nafo.int
 #> Assigning NAFO divisions to 3141 grid cells.
-#> Processing points 1 to 1000. 12:09:29
-#> Processing points 1001 to 2000. 12:09:37
-#> Processing points 2001 to 3000. 12:09:50
-#> Processing points 3001 to 3141. 12:09:57
+#> Processing points 1 to 1000. 15:02:19
+#> Processing points 1001 to 2000. 15:02:29
+#> Processing points 2001 to 3000. 15:02:42
+#> Processing points 3001 to 3141. 15:02:50
 ```
 
 The resulting grid is a data frame. The coordinates are the centers of
