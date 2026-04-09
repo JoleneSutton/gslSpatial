@@ -17,6 +17,7 @@ reference:
   - get_shapefile
   - make_grid
   - make_polygon
+  - sum_overlaps
   - transform_coords
   - union_polygons
 - title: Data

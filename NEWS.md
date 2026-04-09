@@ -1,3 +1,8 @@
+# gslSpatial 0.0.0.9008
+**2026-04-09**
+
+* New function: `sum_overlaps`
+
 # gslSpatial 0.0.0.9007
 **2025-07-29**
 
