@@ -1,6 +1,6 @@
 #' Summarize parts of polygons that overlap one another
 #'
-#' Identifies parts of polygons that overlap, counts the number of overlapping portions, and
+#' Identifies parts of polygons that overlap, counts the number of layers in overlapping portions, and
 #' optionally sums a user-specified numeric variable in the overlapping portions. Returns a Spatvector in
 #' which new polygons are created from the overlapping portions, and no overlaps remain.
 #'
