@@ -1,0 +1,73 @@
+# Package index
+
+## Functions
+
+- [`aggregate_polygons()`](https://jolenesutton.github.io/gslSpatial/reference/aggregate_polygons.md)
+  : Compute summary statistics of a variable over polygons in a
+  shapefile
+- [`aggregate_raster()`](https://jolenesutton.github.io/gslSpatial/reference/aggregate_raster.md)
+  : Compute summary statistics of variables in a data frame for each
+  raster grid cell
+- [`assign_points_secr()`](https://jolenesutton.github.io/gslSpatial/reference/assign_points_secr.md)
+  : Assign points to polygon using package secr
+- [`assign_points_terra()`](https://jolenesutton.github.io/gslSpatial/reference/assign_points_terra.md)
+  : Assign points to polygon using package terra
+- [`assign_points_to_nearest_polygon()`](https://jolenesutton.github.io/gslSpatial/reference/assign_points_to_nearest_polygon.md)
+  : For points that are not within polygons, find the nearest polygon
+  edge
+- [`assign_polygons()`](https://jolenesutton.github.io/gslSpatial/reference/assign_polygons.md)
+  : Assign polygons in one spatvector to polygons in another spatvector,
+  based on greatest overlap
+- [`clean_ziff_dates()`](https://jolenesutton.github.io/gslSpatial/reference/clean_ziff_dates.md)
+  : Clean ziff dates
+- [`convert_dms_to_dd()`](https://jolenesutton.github.io/gslSpatial/reference/convert_dms_to_dd.md)
+  : Convert coordinates from degrees minutes seconds to decimal degrees
+- [`format_grid_manually()`](https://jolenesutton.github.io/gslSpatial/reference/format_grid_manually.md)
+  : Manually format a prediction grid
+- [`get_depth()`](https://jolenesutton.github.io/gslSpatial/reference/get_depth.md)
+  : Get depths associated with longitude and latitude
+- [`get_shapefile()`](https://jolenesutton.github.io/gslSpatial/reference/get_shapefile.md)
+  : Retrieve a stored shapefile
+- [`make_grid()`](https://jolenesutton.github.io/gslSpatial/reference/make_grid.md)
+  : Make a prediction grid for the Gulf Region
+- [`make_polygon()`](https://jolenesutton.github.io/gslSpatial/reference/make_polygon.md)
+  : Make polygons from a data frame of spatial coordinates
+- [`sum_overlaps()`](https://jolenesutton.github.io/gslSpatial/reference/sum_overlaps.md)
+  : Summarize parts of polygons that overlap one another
+- [`transform_coords()`](https://jolenesutton.github.io/gslSpatial/reference/transform_coords.md)
+  : Transform (project/change) spatial coordinates from one coordinate
+  reference system to another
+- [`union_polygons()`](https://jolenesutton.github.io/gslSpatial/reference/union_polygons.md)
+  : Union specified polygons within a shapefile.
+
+## Data
+
+- [`dat.rv`](https://jolenesutton.github.io/gslSpatial/reference/dat.rv.md)
+  : Example data set: Research Vessel (RV) Survey
+- [`dat.visreg.fits`](https://jolenesutton.github.io/gslSpatial/reference/dat.visreg.fits.md)
+  : Data frame of visreg fits
+- [`dat.ziff`](https://jolenesutton.github.io/gslSpatial/reference/dat.ziff.md)
+  : Example data set: Commercial Landings
+- [`pgrid4`](https://jolenesutton.github.io/gslSpatial/reference/pgrid4.md)
+  : An example prediction grid for the Gulf of St. Lawrence
+
+## Shapefiles
+
+- [`coastline`](https://jolenesutton.github.io/gslSpatial/reference/coastline.md)
+  : Coastline shapefile
+- [`hex`](https://jolenesutton.github.io/gslSpatial/reference/hex.md) :
+  Hexagonal grid, 10x10km
+- [`mpa`](https://jolenesutton.github.io/gslSpatial/reference/mpa.md) :
+  Oceans Act Marine Protected Areas shapefile
+- [`nafo.clipped`](https://jolenesutton.github.io/gslSpatial/reference/nafo.clipped.md)
+  : Northwest Atlantic Fisheries Organization (NAFO) shapefile, clipped
+  to land
+- [`nafo.unclipped`](https://jolenesutton.github.io/gslSpatial/reference/nafo.unclipped.md)
+  : Northwest Atlantic Fisheries Organization (NAFO) shapefile, not
+  clipped to land
+- [`oecm`](https://jolenesutton.github.io/gslSpatial/reference/oecm.md)
+  : Other Effective Area-Based Conservation Measures shapefile
+- [`rv.sgsl`](https://jolenesutton.github.io/gslSpatial/reference/rv.sgsl.md)
+  : Southern Gulf of St. Lawrence September Research Vessel Survey
+- [`rv.winter`](https://jolenesutton.github.io/gslSpatial/reference/rv.winter.md)
+  : Gulf of St. Lawrence Winter Research Vessel Survey
