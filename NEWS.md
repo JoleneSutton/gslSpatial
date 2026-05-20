@@ -1,3 +1,8 @@
+# gslSpatial 0.0.0.9009
+**2026-05-20**
+
+* Update function `assign_points_to_nearest_polygon`
+
 # gslSpatial 0.0.0.9008
 **2026-04-09**
 

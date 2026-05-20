@@ -3,11 +3,8 @@
 \name{assign_points_to_nearest_polygon}
 \alias{assign_points_to_nearest_polygon}
 \title{For points that are not within polygons, find the nearest polygon edge}
-\source{
-https://stackoverflow.com/questions/72561812/return-polygon-nearest-to-a-point-using-terra-in-r
-}
 \usage{
-assign_points_to_nearest_polygon(x, y, polygon, layer)
+assign_points_to_nearest_polygon(x, y, polygon)
 }
 \arguments{
 \item{x}{X-coordinates (must have same crs as polygon)}
@@ -15,8 +12,6 @@ assign_points_to_nearest_polygon(x, y, polygon, layer)
 \item{y}{Y-coordinates (must have same crs as polygon)}
 
 \item{polygon}{A spatvector with geometry polygons}
-
-\item{layer}{The name of the polygon layer containing the polygon identities}
 }
 \value{
 A data frame
@@ -27,8 +22,5 @@ For points that are not within polygons, find the nearest polygon edge
 \examples{
 v <- terra::vect(system.file("ex/lux.shp", package="terra"))
 pts <- matrix(c(5.812,6.577,5.864,50.126,49.774,49.488), ncol=2)
-assign_points_to_nearest_polygon(pts[,1],pts[,2],v,'NAME_2')
-}
-\author{
-Robert Hijmans (package \code{terra})
+assign_points_to_nearest_polygon(pts[,1],pts[,2],v)
 }
