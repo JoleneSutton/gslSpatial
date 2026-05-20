@@ -43,28 +43,30 @@ testit<-sum_overlaps(test,'id')
 #> although coordinates are longitude/latitude, st_intersection assumes that they
 #> are planar
 testit
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 8, 2  (geometries, attributes)
-#>  extent      : 0, 8, -1, 3  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :   ids n.overlaps
-#>  type        : <chr>      <int>
-#>  values      :     A          1
-#>                 A, B          2
-#>                    B          1
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 8, 2  (geometries, attributes)
+#> extent      : 0, 8, -1, 3  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :   ids n.overlaps
+#> type        : <chr>      <int>
+#> values      :     A          1
+#>                A, B          2
+#>                   B          1
+#>               ...
 testit<-sum_overlaps(test,'id','value')
 #> although coordinates are longitude/latitude, st_intersection assumes that they
 #> are planar
 testit
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 8, 3  (geometries, attributes)
-#>  extent      : 0, 8, -1, 3  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat WGS 84 (EPSG:4326) 
-#>  names       :   ids n.overlaps sum.value
-#>  type        : <chr>      <int>     <num>
-#>  values      :     A          1        10
-#>                 A, B          2        20
-#>                    B          1        10
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 8, 3  (geometries, attributes)
+#> extent      : 0, 8, -1, 3  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat WGS 84 (EPSG:4326)
+#> names       :   ids n.overlaps sum.value
+#> type        : <chr>      <int>     <num>
+#> values      :     A          1        10
+#>                A, B          2        20
+#>                   B          1        10
+#>               ...
 ```

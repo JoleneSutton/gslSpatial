@@ -19,6 +19,7 @@ package will also be installed.
 To install **gslSpatial**, use:
 
 ``` r
+
 # install.packages("devtools")
 options(timeout=400)
 devtools::install_github("JoleneSutton/gslSpatial")

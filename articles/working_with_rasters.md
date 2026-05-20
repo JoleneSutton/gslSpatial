@@ -7,6 +7,7 @@
 3.  Get the results as either a data frame or a SpatRaster
 
 ``` r
+
 library(gslSpatial)
 library(ggplot2)
 library(terra)
@@ -23,13 +24,14 @@ default, this function generates grid cells spanning all of NAFO
 each cell.
 
 ``` r
+
 grid<-make_grid(10)
 #> Source: https://www.nafo.int
 #> Assigning NAFO divisions to 3141 grid cells.
-#> Processing points 1 to 1000. 15:02:19
-#> Processing points 1001 to 2000. 15:02:29
-#> Processing points 2001 to 3000. 15:02:42
-#> Processing points 3001 to 3141. 15:02:50
+#> Processing points 1 to 1000. 00:36:40
+#> Processing points 1001 to 2000. 00:36:50
+#> Processing points 2001 to 3000. 00:37:03
+#> Processing points 3001 to 3141. 00:37:11
 ```
 
 The resulting grid is a data frame. The coordinates are the centers of
@@ -38,6 +40,7 @@ in decimal degrees. X and Y coordinates are NAD83, UTM zone 20N, with
 units in km.
 
 ``` r
+
 class(grid)
 #> [1] "data.frame"
 head(grid)
@@ -56,6 +59,7 @@ Notice that grid cells without assigned NAFO divisions have centers that
 fall outside the NAFO borders.
 
 ``` r
+
 # get NAFO boundaries
 naf<-get_shapefile('nafo.clipped')
 #> Source: https://www.nafo.int
@@ -76,6 +80,7 @@ ggplot()+
 - Remove grid cells with depths shallower than 5 meters.
 
 ``` r
+
 grid<-grid[which(grid$nafo.assigned=="4T"),]
 
 depth<-get_depth(grid$longitude,grid$latitude,"epsg:4269")
@@ -111,6 +116,7 @@ coordinate reference system of the ‘longitude’ and ‘latitude’ columns is
 NAD83, EPSG:4269, decimal degrees.
 
 ``` r
+
 dat<-dat.rv[,1:7]
 head(dat)
 #>           X        Y longitude latitude year   depth whake.kg.tow
@@ -127,6 +133,7 @@ head(dat)
 This figure also shows the sGSL September Reearch Vessel survey strata.
 
 ``` r
+
 rv<-get_shapefile('rv.sgsl')
 #> sGSL September RV Survey
 rv<-terra::project(rv,naf)
@@ -142,6 +149,7 @@ ggplot()+
 ## Summarise
 
 ``` r
+
 x<-aggregate_raster(dat,"whake.kg.tow",sum,grid,out='df')
 names(x)[ncol(x)]<-'sum.hake'
 head(x)
@@ -163,6 +171,7 @@ The coloured grid cells show where white hake was caught, with the
 colour representing the total amoung of white hake that was caught.
 
 ``` r
+
 ggplot()+
   geom_tile(data=grid,aes(X,Y),fill='white')+
   geom_spatvector(data=rv,fill=NA)+
@@ -177,17 +186,18 @@ ggplot()+
 ### Alternatively, summarise to a SpatRaster
 
 ``` r
+
 x2<-aggregate_raster(dat,"whake.kg.tow",sum,grid)
 crs(x2)<-crs(naf)
 names(x2)[2]<-'sum.hake'
 x2
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 43, 81, 2  (nrow, ncol, nlyr)
 #> resolution  : 10, 10  (x, y)
 #> extent      : -86.00223, 723.9978, 5055.911, 5485.911  (xmin, xmax, ymin, ymax)
-#> coord. ref. : +proj=utm +zone=20 +datum=NAD83 +units=km +no_defs 
+#> coord. ref. : +proj=utm +zone=20 +datum=NAD83 +units=km +no_defs
 #> source(s)   : memory
-#> names       :   ID, sum.hake 
-#> min values  :    4,   0.0000 
-#> max values  : 7645, 231.7623
+#> names       :   ID,   sum.hake
+#> min values  :    4,          0
+#> max values  : 7645, 231.762289
 ```

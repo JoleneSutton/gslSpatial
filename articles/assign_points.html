@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Assigning points to polygons • gslSpatial</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Assigning points to polygons">
 </head>
@@ -102,16 +102,17 @@ the same crs. If they don’t, you can re-project them (e.g.,
 <span></span>
 <span><span class="co"># see information about the object</span></span>
 <span><span class="va">rv</span> </span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 27, 3  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : -65.9368, -60.0779, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat NAD83 (EPSG:4269) </span></span>
-<span><span class="co">#&gt;  names       :    id  area trawlable.</span></span>
-<span><span class="co">#&gt;  type        : &lt;int&gt; &lt;num&gt;      &lt;num&gt;</span></span>
-<span><span class="co">#&gt;  values      :   401  1182  2.916e+04</span></span>
-<span><span class="co">#&gt;                  402  1553  3.832e+04</span></span>
-<span><span class="co">#&gt;                  403   388       9580</span></span>
+<span><span class="co">#&gt; class       : SpatVector</span></span>
+<span><span class="co">#&gt; geometry    : polygons</span></span>
+<span><span class="co">#&gt; dimensions  : 27, 3  (geometries, attributes)</span></span>
+<span><span class="co">#&gt; extent      : -65.9368, -60.0779, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : lon/lat NAD83 (EPSG:4269)</span></span>
+<span><span class="co">#&gt; names       :    id  area trawlable.</span></span>
+<span><span class="co">#&gt; type        : &lt;int&gt; &lt;num&gt;      &lt;num&gt;</span></span>
+<span><span class="co">#&gt; values      :   401  1182      29163</span></span>
+<span><span class="co">#&gt;                 402  1553      38319</span></span>
+<span><span class="co">#&gt;                 403   388       9580</span></span>
+<span><span class="co">#&gt;               ...</span></span>
 <span></span>
 <span><span class="co"># plot it</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
@@ -152,11 +153,11 @@ polygons</p>
 </h2>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/assign_points_terra.html">assign_points_terra</a></span><span class="op">(</span><span class="va">df</span><span class="op">$</span><span class="va">longitude</span>, <span class="va">df</span><span class="op">$</span><span class="va">latitude</span>,<span class="va">rv</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 15:01:45</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 15:01:46</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 15:01:46</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 4000. 15:01:46</span></span>
-<span><span class="co">#&gt; Processing points 4001 to 4559. 15:01:46</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 00:36:06</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 00:36:06</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 00:36:06</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 4000. 00:36:06</span></span>
+<span><span class="co">#&gt; Processing points 4001 to 4559. 00:36:06</span></span>
 <span><span class="fu"><a href="https://rspatial.github.io/terra/reference/headtail.html" class="external-link">head</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          x       y assigned.polygon</span></span>
 <span><span class="co">#&gt; 1 -60.4406 47.2421              437</span></span>
@@ -198,26 +199,17 @@ Marine Protected Areas</p>
 <code class="sourceCode R"><span><span class="va">mpa</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/get_shapefile.html">get_shapefile</a></span><span class="op">(</span><span class="st">'mpa'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">mpa</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 11, 12  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : -64.14, -58.3667, 45.7833, 48.75004  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat NAD83 (EPSG:4269) </span></span>
-<span><span class="co">#&gt;  names       : OBJECTID          NAME_E          NAME_F ZONE_E ZONE_F</span></span>
-<span><span class="co">#&gt;  type        :    &lt;int&gt;           &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;</span></span>
-<span><span class="co">#&gt;  values      :        1 Basin Head Mar~ Zone de protec~ Zone 3 Zone 3</span></span>
-<span><span class="co">#&gt;                       2 Basin Head Mar~ Zone de protec~ Zone 1 Zone 1</span></span>
-<span><span class="co">#&gt;                       3 Basin Head Mar~ Zone de protec~ Zone 2 Zone 2</span></span>
-<span><span class="co">#&gt;            URL_E           URL_F      REGULATION       REGLEMENT   KM2</span></span>
-<span><span class="co">#&gt;            &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt; &lt;num&gt;</span></span>
-<span><span class="co">#&gt;  http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  8.64</span></span>
-<span><span class="co">#&gt;  http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.24</span></span>
-<span><span class="co">#&gt;  http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.35</span></span>
-<span><span class="co">#&gt;  Shape_Leng Shape_Area</span></span>
-<span><span class="co">#&gt;       &lt;num&gt;      &lt;num&gt;</span></span>
-<span><span class="co">#&gt;   1.519e+04  8.642e+06</span></span>
-<span><span class="co">#&gt;        6510  2.416e+05</span></span>
-<span><span class="co">#&gt;        5976  3.541e+05</span></span>
+<span><span class="co">#&gt; class       : SpatVector</span></span>
+<span><span class="co">#&gt; geometry    : polygons</span></span>
+<span><span class="co">#&gt; dimensions  : 11, 12  (geometries, attributes)</span></span>
+<span><span class="co">#&gt; extent      : -64.14, -58.3667, 45.7833, 48.75004  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : lon/lat NAD83 (EPSG:4269)</span></span>
+<span><span class="co">#&gt; names       : OBJECTID          NAME_E          NAME_F ZONE_E ZONE_F           URL_E           URL_F      REGULATION       REGLEMENT   KM2 Shape_Leng  Shape_Area</span></span>
+<span><span class="co">#&gt; type        :    &lt;int&gt;           &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt; &lt;num&gt;      &lt;num&gt;       &lt;num&gt;</span></span>
+<span><span class="co">#&gt; values      :        1 Basin Head Mar~ Zone de protec~ Zone 3 Zone 3 http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  8.64    15192.6 8.64204e+06</span></span>
+<span><span class="co">#&gt;                      2 Basin Head Mar~ Zone de protec~ Zone 1 Zone 1 http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.24    6509.81      241573</span></span>
+<span><span class="co">#&gt;                      3 Basin Head Mar~ Zone de protec~ Zone 2 Zone 2 http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.35    5975.78      354147</span></span>
+<span><span class="co">#&gt;               ...</span></span>
 <span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">mpa</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">NAME_E</span><span class="op">)</span><span class="op">)</span>,col<span class="op">=</span><span class="st">'blue'</span>,lwd<span class="op">=</span><span class="fl">1.25</span><span class="op">)</span><span class="op">+</span></span>
@@ -247,16 +239,17 @@ shapefile.</p>
 <span><span class="va">shape</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">rv</span>,<span class="va">mpa</span><span class="op">)</span></span>
 <span><span class="va">shape</span><span class="op">&lt;-</span><span class="va">shape</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"NAME"</span><span class="op">)</span><span class="op">]</span></span>
 <span><span class="va">shape</span></span>
-<span><span class="co">#&gt;  class       : SpatVector </span></span>
-<span><span class="co">#&gt;  geometry    : polygons </span></span>
-<span><span class="co">#&gt;  dimensions  : 38, 1  (geometries, attributes)</span></span>
-<span><span class="co">#&gt;  extent      : -65.9368, -58.3667, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)</span></span>
-<span><span class="co">#&gt;  coord. ref. : lon/lat NAD83 (EPSG:4269) </span></span>
-<span><span class="co">#&gt;  names       :  NAME</span></span>
-<span><span class="co">#&gt;  type        : &lt;chr&gt;</span></span>
-<span><span class="co">#&gt;  values      :   401</span></span>
-<span><span class="co">#&gt;                  402</span></span>
-<span><span class="co">#&gt;                  403</span></span></code></pre></div>
+<span><span class="co">#&gt; class       : SpatVector</span></span>
+<span><span class="co">#&gt; geometry    : polygons</span></span>
+<span><span class="co">#&gt; dimensions  : 38, 1  (geometries, attributes)</span></span>
+<span><span class="co">#&gt; extent      : -65.9368, -58.3667, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)</span></span>
+<span><span class="co">#&gt; coord. ref. : lon/lat NAD83 (EPSG:4269)</span></span>
+<span><span class="co">#&gt; names       :  NAME</span></span>
+<span><span class="co">#&gt; type        : &lt;chr&gt;</span></span>
+<span><span class="co">#&gt; values      :   401</span></span>
+<span><span class="co">#&gt;                 402</span></span>
+<span><span class="co">#&gt;                 403</span></span>
+<span><span class="co">#&gt;               ...</span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span><span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://dieghernan.github.io/tidyterra/reference/ggspatvector.html" class="external-link">geom_spatvector</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">shape</span>,<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">NAME</span><span class="op">)</span><span class="op">)</span>,alpha<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span><span class="op">+</span></span>
@@ -269,11 +262,11 @@ shapefile.</p>
 <code class="sourceCode R"><span><span class="va">x</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/assign_points_secr.html">assign_points_secr</a></span><span class="op">(</span><span class="va">dat.ziff</span><span class="op">[</span>,<span class="st">'longitude'</span><span class="op">]</span>,</span>
 <span>                        <span class="va">dat.ziff</span><span class="op">[</span>,<span class="st">'latitude'</span><span class="op">]</span>,</span>
 <span>                        <span class="va">shape</span>,<span class="st">"NAME"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Processing points 1 to 1000. 15:01:48</span></span>
-<span><span class="co">#&gt; Processing points 1001 to 2000. 15:01:49</span></span>
-<span><span class="co">#&gt; Processing points 2001 to 3000. 15:01:50</span></span>
-<span><span class="co">#&gt; Processing points 3001 to 4000. 15:01:50</span></span>
-<span><span class="co">#&gt; Processing points 4001 to 4559. 15:01:50</span></span>
+<span><span class="co">#&gt; Processing points 1 to 1000. 00:36:09</span></span>
+<span><span class="co">#&gt; Processing points 1001 to 2000. 00:36:10</span></span>
+<span><span class="co">#&gt; Processing points 2001 to 3000. 00:36:10</span></span>
+<span><span class="co">#&gt; Processing points 3001 to 4000. 00:36:11</span></span>
+<span><span class="co">#&gt; Processing points 4001 to 4559. 00:36:11</span></span>
 <span></span>
 <span><span class="va">polygon</span><span class="op">&lt;-</span><span class="va">x</span><span class="op">$</span><span class="va">assigned.polygon</span></span>
 <span></span>

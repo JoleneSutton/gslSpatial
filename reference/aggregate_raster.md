@@ -54,13 +54,13 @@ head(x)
 #> 27690 423.9978 5429.911    12.071751       352.3210
 x2<-aggregate_raster(dat.rv,c("whake.kg.tow",'redfish.kg.tow'),sum,pgrid4)
 x2
-#> class       : SpatRaster 
+#> class       : SpatRaster
 #> size        : 191, 287, 3  (nrow, ncol, nlyr)
 #> resolution  : 4, 4  (x, y)
 #> extent      : -126.0022, 1021.998, 5051.911, 5815.911  (xmin, xmax, ymin, ymax)
-#> coord. ref. :  
+#> coord. ref. : 
 #> source(s)   : memory
-#> names       :   ID, whake.kg.tow, redfish.kg.tow 
-#> min values  :    1,       0.0000,          0.000 
-#> max values  : 4350,     200.8836,       6811.538 
+#> names       :   ID, whake.kg.tow, redfish.kg.tow
+#> min values  :    1,            0,              0
+#> max values  : 4350,   200.883553,    6811.538261
 ```

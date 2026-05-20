@@ -19,6 +19,7 @@ The examples below assign fishing coordinates to DFO September research
 vessel survey strata and/or Marine Protected Areas.
 
 ``` r
+
 library(gslSpatial)
 library(ggplot2)
 library(tidyterra)
@@ -32,21 +33,23 @@ the same crs. If they don’t, you can re-project them (e.g.,
 ?terra::project).
 
 ``` r
+
 rv<-get_shapefile('rv.sgsl')
 #> sGSL September RV Survey
 
 # see information about the object
 rv 
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 27, 3  (geometries, attributes)
-#>  extent      : -65.9368, -60.0779, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat NAD83 (EPSG:4269) 
-#>  names       :    id  area trawlable.
-#>  type        : <int> <num>      <num>
-#>  values      :   401  1182  2.916e+04
-#>                  402  1553  3.832e+04
-#>                  403   388       9580
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 27, 3  (geometries, attributes)
+#> extent      : -65.9368, -60.0779, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat NAD83 (EPSG:4269)
+#> names       :    id  area trawlable.
+#> type        : <int> <num>      <num>
+#> values      :   401  1182      29163
+#>                 402  1553      38319
+#>                 403   388       9580
+#>               ...
 
 # plot it
 ggplot()+
@@ -61,6 +64,7 @@ This example uses commercial landings data that have longitude and
 latitude coordinates with the same crs as the shapefile.
 
 ``` r
+
 df<-dat.ziff[,c('longitude','latitude')]
 head(df)
 #>         longitude latitude
@@ -79,6 +83,7 @@ polygons
 
 ``` r
 
+
 ggplot()+
   geom_spatvector(data=rv)+
   geom_point(data=df,aes(longitude,latitude))+
@@ -90,12 +95,13 @@ ggplot()+
 ## Using function `assign_points_terra`
 
 ``` r
+
 x<-assign_points_terra(df$longitude, df$latitude,rv)
-#> Processing points 1 to 1000. 15:01:45
-#> Processing points 1001 to 2000. 15:01:46
-#> Processing points 2001 to 3000. 15:01:46
-#> Processing points 3001 to 4000. 15:01:46
-#> Processing points 4001 to 4559. 15:01:46
+#> Processing points 1 to 1000. 00:36:06
+#> Processing points 1001 to 2000. 00:36:06
+#> Processing points 2001 to 3000. 00:36:06
+#> Processing points 3001 to 4000. 00:36:06
+#> Processing points 4001 to 4559. 00:36:06
 head(x)
 #>          x       y assigned.polygon
 #> 1 -60.4406 47.2421              437
@@ -135,29 +141,21 @@ Start by getting another shapefile. This example uses Oceans Act Marine
 Protected Areas
 
 ``` r
+
 mpa<-get_shapefile('mpa')
 
 mpa
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 11, 12  (geometries, attributes)
-#>  extent      : -64.14, -58.3667, 45.7833, 48.75004  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat NAD83 (EPSG:4269) 
-#>  names       : OBJECTID          NAME_E          NAME_F ZONE_E ZONE_F
-#>  type        :    <int>           <chr>           <chr>  <chr>  <chr>
-#>  values      :        1 Basin Head Mar~ Zone de protec~ Zone 3 Zone 3
-#>                       2 Basin Head Mar~ Zone de protec~ Zone 1 Zone 1
-#>                       3 Basin Head Mar~ Zone de protec~ Zone 2 Zone 2
-#>            URL_E           URL_F      REGULATION       REGLEMENT   KM2
-#>            <chr>           <chr>           <chr>           <chr> <num>
-#>  http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  8.64
-#>  http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.24
-#>  http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.35
-#>  Shape_Leng Shape_Area
-#>       <num>      <num>
-#>   1.519e+04  8.642e+06
-#>        6510  2.416e+05
-#>        5976  3.541e+05
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 11, 12  (geometries, attributes)
+#> extent      : -64.14, -58.3667, 45.7833, 48.75004  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat NAD83 (EPSG:4269)
+#> names       : OBJECTID          NAME_E          NAME_F ZONE_E ZONE_F           URL_E           URL_F      REGULATION       REGLEMENT   KM2 Shape_Leng  Shape_Area
+#> type        :    <int>           <chr>           <chr>  <chr>  <chr>           <chr>           <chr>           <chr>           <chr> <num>      <num>       <num>
+#> values      :        1 Basin Head Mar~ Zone de protec~ Zone 3 Zone 3 http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  8.64    15192.6 8.64204e+06
+#>                      2 Basin Head Mar~ Zone de protec~ Zone 1 Zone 1 http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.24    6509.81      241573
+#>                      3 Basin Head Mar~ Zone de protec~ Zone 2 Zone 2 http://www.dfo~ http://www.dfo~ http://laws.ju~ http://laws.ju~  0.35    5975.78      354147
+#>               ...
 
 ggplot()+
   geom_spatvector(data=mpa,aes(fill=factor(NAME_E)),col='blue',lwd=1.25)+
@@ -174,6 +172,7 @@ In order to demonstrate function `assign_points_secr`, we will combine
 the two shapefiles as if they were originally a single shapefile.
 
 ``` r
+
 library('terra')
 
 # first need to make names match
@@ -190,19 +189,21 @@ mpa$NAME<-as.character(mpa$NAME_E)
 shape<-rbind(rv,mpa)
 shape<-shape[, c("NAME")]
 shape
-#>  class       : SpatVector 
-#>  geometry    : polygons 
-#>  dimensions  : 38, 1  (geometries, attributes)
-#>  extent      : -65.9368, -58.3667, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)
-#>  coord. ref. : lon/lat NAD83 (EPSG:4269) 
-#>  names       :  NAME
-#>  type        : <chr>
-#>  values      :   401
-#>                  402
-#>                  403
+#> class       : SpatVector
+#> geometry    : polygons
+#> dimensions  : 38, 1  (geometries, attributes)
+#> extent      : -65.9368, -58.3667, 45.6756, 49.1769  (xmin, xmax, ymin, ymax)
+#> coord. ref. : lon/lat NAD83 (EPSG:4269)
+#> names       :  NAME
+#> type        : <chr>
+#> values      :   401
+#>                 402
+#>                 403
+#>               ...
 ```
 
 ``` r
+
 ggplot()+
   geom_spatvector(data=shape,aes(fill=factor(NAME)),alpha=0.5)+
   theme_bw()+
@@ -215,14 +216,15 @@ ggplot()+
 Now use function `assign_points_secr`
 
 ``` r
+
 x<-assign_points_secr(dat.ziff[,'longitude'],
                         dat.ziff[,'latitude'],
                         shape,"NAME")
-#> Processing points 1 to 1000. 15:01:48
-#> Processing points 1001 to 2000. 15:01:49
-#> Processing points 2001 to 3000. 15:01:50
-#> Processing points 3001 to 4000. 15:01:50
-#> Processing points 4001 to 4559. 15:01:50
+#> Processing points 1 to 1000. 00:36:09
+#> Processing points 1001 to 2000. 00:36:10
+#> Processing points 2001 to 3000. 00:36:10
+#> Processing points 3001 to 4000. 00:36:11
+#> Processing points 4001 to 4559. 00:36:11
 
 polygon<-x$assigned.polygon
 
@@ -234,6 +236,7 @@ which stratum 416 overlaps with Banc-des-Américains Marine Protected
 Area. All other assigned points belong to non-overlapping polygon areas.
 
 ``` r
+
 rbind(table(df2$polygon))
 #>      415 416 416, Banc-des-Américains Marine Protected Area 417 418 419 420 422
 #> [1,] 105 111                                             69  92  77  28  31  15
@@ -262,6 +265,7 @@ bit longer to run compared to `assign_points_terra` or
 `assign_points_secr`.
 
 ``` r
+
 # get the unassigned data points
 pts.outside<-df2[which(is.na(df2$polygon)),]
 
