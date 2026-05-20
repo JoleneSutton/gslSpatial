@@ -3,9 +3,6 @@
 \name{assign_polygons}
 \alias{assign_polygons}
 \title{Assign polygons in one spatvector to polygons in another spatvector, based on greatest overlap}
-\source{
-https://gis.stackexchange.com/questions/140504/extracting-intersection-areas-in-r
-}
 \usage{
 assign_polygons(x, y)
 }
@@ -15,7 +12,7 @@ assign_polygons(x, y)
 \item{y}{A spatvector with one column.}
 }
 \description{
-Assign polygons in one spatvector to polygons in another spatvector, based on greatest overlap
+Rather than identifying all intersecting polygons, this function identifies the polygon in 'y' that is associated with the greatest overlap of each polygon in 'x'.
 }
 \examples{
 #fa.poly<-vect('C:/Users/SUTTONJO/Documents/GCCODE/fisheries-landscape/analysis/lobster/data/fleet_polygons_formatted.shp')
