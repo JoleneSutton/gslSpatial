@@ -97,11 +97,11 @@ ggplot()+
 ``` r
 
 x<-assign_points_terra(df$longitude, df$latitude,rv)
-#> Processing points 1 to 1000. 00:36:06
-#> Processing points 1001 to 2000. 00:36:06
-#> Processing points 2001 to 3000. 00:36:06
-#> Processing points 3001 to 4000. 00:36:06
-#> Processing points 4001 to 4559. 00:36:06
+#> Processing points 1 to 1000. 14:22:13
+#> Processing points 1001 to 2000. 14:22:13
+#> Processing points 2001 to 3000. 14:22:13
+#> Processing points 3001 to 4000. 14:22:13
+#> Processing points 4001 to 4559. 14:22:13
 head(x)
 #>          x       y assigned.polygon
 #> 1 -60.4406 47.2421              437
@@ -220,11 +220,11 @@ Now use function `assign_points_secr`
 x<-assign_points_secr(dat.ziff[,'longitude'],
                         dat.ziff[,'latitude'],
                         shape,"NAME")
-#> Processing points 1 to 1000. 00:36:09
-#> Processing points 1001 to 2000. 00:36:10
-#> Processing points 2001 to 3000. 00:36:10
-#> Processing points 3001 to 4000. 00:36:11
-#> Processing points 4001 to 4559. 00:36:11
+#> Processing points 1 to 1000. 14:22:15
+#> Processing points 1001 to 2000. 14:22:16
+#> Processing points 2001 to 3000. 14:22:17
+#> Processing points 3001 to 4000. 14:22:17
+#> Processing points 4001 to 4559. 14:22:18
 
 polygon<-x$assigned.polygon
 
@@ -269,20 +269,20 @@ bit longer to run compared to `assign_points_terra` or
 # get the unassigned data points
 pts.outside<-df2[which(is.na(df2$polygon)),]
 
-x<-assign_points_to_nearest_polygon(pts.outside$longitude, pts.outside$latitude, shape, 'NAME')
+x<-assign_points_to_nearest_polygon(pts.outside$longitude, pts.outside$latitude, shape)
 
 head(x)
-#>          x       y NAME n$distance
-#> 1 -60.2833 47.4666  439  1649.2764
-#> 2 -60.3000 47.4666  439   944.1621
-#> 3 -60.3000 47.4666  439   944.1621
-#> 4 -60.2833 47.4833  439  3034.2767
-#> 5 -60.3166 47.4833  439  1080.0245
-#> 6 -60.2833 47.4833  439  3034.2767
+#>          x       y closest.polygon closest.distance.km
+#> 1 -60.2833 47.4666             439           1.6258200
+#> 2 -60.3000 47.4666             439           0.8289201
+#> 3 -60.3000 47.4666             439           0.8289201
+#> 4 -60.2833 47.4833             439           2.9693073
+#> 5 -60.3166 47.4833             439           0.9751439
+#> 6 -60.2833 47.4833             439           2.9693073
 
 ggplot()+
   geom_spatvector(data=shape,fill=NA)+
-  geom_point(data=x,aes(x,y,col=NAME),alpha=0.5)+
+  geom_point(data=x,aes(x,y,col=closest.polygon),alpha=0.5)+
   theme_bw()+
   theme(legend.position="bottom",legend.title=element_blank())+
   guides(col=guide_legend(ncol=6))
