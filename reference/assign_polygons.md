@@ -24,15 +24,17 @@ assign_polygons(x, y)
 ## Examples
 
 ``` r
-#fa.poly<-vect('C:/Users/SUTTONJO/Documents/GCCODE/fisheries-landscape/analysis/lobster/data/fleet_polygons_formatted.shp')
-#naf<-get_shapefile('nafo.clipped')
-#naf<-project(naf,fa.poly)
-#x<-crop(fa.poly,naf)
-#x<-x[,13]
-#y=naf[,1]
-#test<-assign_polygons(x,y)
-#test
-#ggplot()+
-#geom_spatvector(data=test[which(test$Label%in%c('4T','4S')),],aes(fill=Label))+#,col=NA
-#geom_spatvector(data=naf,aes(col=Label),fill=NA)
+if (FALSE) { # \dontrun{
+poly<-get_shapefile('oecm')
+naf<-get_shapefile('nafo.clipped')
+naf<-project(naf,poly)
+x<-crop(poly,naf)
+x<-x[,1]
+y=naf[,1]
+test<-assign_polygons(x,y)
+test
+ggplot()+
+geom_spatvector(data=test[which(test$Label%in%c('4T','4S')),],aes(fill=Label))+#,col=NA
+geom_spatvector(data=naf,fill=NA)
+} # }
 ```

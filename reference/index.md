@@ -5,9 +5,6 @@
 - [`aggregate_polygons()`](https://jolenesutton.github.io/gslSpatial/reference/aggregate_polygons.md)
   : Compute summary statistics of a variable over polygons in a
   shapefile
-- [`aggregate_raster()`](https://jolenesutton.github.io/gslSpatial/reference/aggregate_raster.md)
-  : Compute summary statistics of variables in a data frame for each
-  raster grid cell
 - [`assign_points_secr()`](https://jolenesutton.github.io/gslSpatial/reference/assign_points_secr.md)
   : Assign points to polygon using package secr
 - [`assign_points_terra()`](https://jolenesutton.github.io/gslSpatial/reference/assign_points_terra.md)
@@ -29,7 +26,7 @@
 - [`get_shapefile()`](https://jolenesutton.github.io/gslSpatial/reference/get_shapefile.md)
   : Retrieve a stored shapefile
 - [`make_grid()`](https://jolenesutton.github.io/gslSpatial/reference/make_grid.md)
-  : Make a prediction grid for the Gulf Region
+  : Make a prediction grid
 - [`make_polygon()`](https://jolenesutton.github.io/gslSpatial/reference/make_polygon.md)
   : Make polygons from a data frame of spatial coordinates
 - [`sum_overlaps()`](https://jolenesutton.github.io/gslSpatial/reference/sum_overlaps.md)
