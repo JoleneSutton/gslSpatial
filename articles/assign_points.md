@@ -97,11 +97,11 @@ ggplot()+
 ``` r
 
 x<-assign_points_terra(df$longitude, df$latitude,rv)
-#> Processing points 1 to 1000. 17:17:01
-#> Processing points 1001 to 2000. 17:17:01
-#> Processing points 2001 to 3000. 17:17:01
-#> Processing points 3001 to 4000. 17:17:01
-#> Processing points 4001 to 4559. 17:17:01
+#> Processing points 1 to 1000. 17:31:03
+#> Processing points 1001 to 2000. 17:31:03
+#> Processing points 2001 to 3000. 17:31:03
+#> Processing points 3001 to 4000. 17:31:03
+#> Processing points 4001 to 4559. 17:31:03
 head(x)
 #>          x       y assigned.polygon
 #> 1 -60.4406 47.2421              437
@@ -220,11 +220,11 @@ Now use function `assign_points_secr`
 x<-assign_points_secr(dat.ziff[,'longitude'],
                         dat.ziff[,'latitude'],
                         shape,"NAME")
-#> Processing points 1 to 1000. 17:17:03
-#> Processing points 1001 to 2000. 17:17:04
-#> Processing points 2001 to 3000. 17:17:05
-#> Processing points 3001 to 4000. 17:17:05
-#> Processing points 4001 to 4559. 17:17:06
+#> Processing points 1 to 1000. 17:31:05
+#> Processing points 1001 to 2000. 17:31:07
+#> Processing points 2001 to 3000. 17:31:07
+#> Processing points 3001 to 4000. 17:31:08
+#> Processing points 4001 to 4559. 17:31:08
 
 polygon<-x$assigned.polygon
 
