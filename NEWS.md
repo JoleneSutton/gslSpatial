@@ -1,3 +1,11 @@
+# gslSpatial 0.0.0.9010
+**2026-06-22**
+
+* Removed package `sp` dependencies
+* Major updates to function `make_grid`. See ?make_grid
+* Removed function `aggregate_raster` (maybe just temporarily), and vignette "Working with rasters"
+* Minor updates to functions: `assign_polygons` and `make_polygon`
+
 # gslSpatial 0.0.0.9009
 **2026-05-20**
 
