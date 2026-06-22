@@ -9,7 +9,6 @@
 #' @importFrom dplyr group_by summarise
 #' @importFrom sf st_as_sf st_cast st_crs st_combine
 #' @importFrom terra vect
-#' @importFrom sp geometry
 #' @examples
 #' x<-c(-65,-60,-55, -61,-60,-59)
 #' y<-c( 47, 50, 47,  48, 49, 48)
@@ -22,6 +21,9 @@
 #' @export
 make_polygon<-function(df,x,y,grp.cols,crs){
 
+  #deal with 'global variables'
+  geometry=NULL
+
   X<-df[,x]
   Y<-df[,y]
   names(X)<-'X'
@@ -31,10 +33,11 @@ make_polygon<-function(df,x,y,grp.cols,crs){
   index<-which(names(df2)%in%grp.cols)
 
     POLYGON <- df2 |>
-    st_as_sf(coords = c('X','Y')) |>
-    dplyr::group_by(df2[,index])|>
-    dplyr::summarise(geometry = sf::st_combine(geometry)) |>
-    sf::st_cast("POLYGON")
+      sf::st_as_sf(coords = c('X','Y')) |>
+      dplyr::group_by(df2[,index])|>
+      dplyr::summarise(geometry = sf::st_combine(geometry)) |>
+      sf::st_cast("POLYGON")
+
     sf::st_crs(POLYGON) <- crs
     POLYGON<-terra::vect(POLYGON)
 

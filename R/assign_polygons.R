@@ -4,22 +4,22 @@
 #'
 #' @param x A spatvector with one column. Want to assign polygons in x to polygons in y.
 #' @param y A spatvector with one column.
-#' @import sf
 #' @importFrom dplyr group_by slice_max left_join
 #' @importFrom terra intersect expanse
-#' @importFrom utils globalVariables
 #' @examples
-#' #fa.poly<-vect('C:/Users/SUTTONJO/Documents/GCCODE/fisheries-landscape/analysis/lobster/data/fleet_polygons_formatted.shp')
-#' #naf<-get_shapefile('nafo.clipped')
-#' #naf<-project(naf,fa.poly)
-#' #x<-crop(fa.poly,naf)
-#' #x<-x[,13]
-#' #y=naf[,1]
-#' #test<-assign_polygons(x,y)
-#' #test
-#' #ggplot()+
-#' #geom_spatvector(data=test[which(test$Label%in%c('4T','4S')),],aes(fill=Label))+#,col=NA
-#' #geom_spatvector(data=naf,aes(col=Label),fill=NA)
+#' \dontrun{
+#' poly<-get_shapefile('oecm')
+#' naf<-get_shapefile('nafo.clipped')
+#' naf<-project(naf,poly)
+#' x<-crop(poly,naf)
+#' x<-x[,1]
+#' y=naf[,1]
+#' test<-assign_polygons(x,y)
+#' test
+#' ggplot()+
+#' geom_spatvector(data=test[which(test$Label%in%c('4T','4S')),],aes(fill=Label))+#,col=NA
+#' geom_spatvector(data=naf,fill=NA)
+#' }
 #' @export
 assign_polygons<-function(x,y){
 

@@ -5,7 +5,6 @@ reference:
 - title: Functions
   contents:
   - aggregate_polygons
-  - aggregate_raster
   - assign_points_secr
   - assign_points_terra
   - assign_points_to_nearest_polygon
